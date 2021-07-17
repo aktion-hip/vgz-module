@@ -1,0 +1,6 @@
+title: vgz-homepage-intern
+templateScript: /vgz-module/templates/pages/vgz-homepage-intern.ftl
+renderType: freemarker
+dialog: vgz-module:pages/vgz-homepage-intern
+visible: true
+

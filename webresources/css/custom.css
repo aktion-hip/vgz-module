@@ -1,0 +1,116 @@
+/* Custom CSS - Sonderheiten StadtOase Design*/
+.tm-page{background-color:#FAF8E7;}
+.tm-header{background-color:#FFF;}
+
+#footer > .uk-container { padding-left: 20px; padding-right: 20px }
+
+.imgLogo {
+    position: absolute;
+    top:110px;
+    right:40px;
+    max-width:200px
+}
+.imgLogo.fixed {
+    position: fixed;
+}
+
+.btnRow .uk-grid { display: block; }
+.btnRowRight {position: fixed;top:400px;right:0px}
+.btnRowRight {margin-top:10px}
+.btnRowLeft {position:absolute; bottom:5vh; z-index: 150; }
+.btnRowRight * .uk-button {padding:0 10px;min-width: 250px;text-align: left;}
+
+.btnVerein {
+    width: 60px;
+    height: 60px;
+    border: 10px solid #465F0E;
+    border-radius: 500px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    float:right;
+    margin-right: 25px;
+}
+.btnVerein a {
+    font-weight:600;
+    text-decoration: none;
+    font-size:15px
+}
+.uk-section-primary * .btnVerein  { border-color: #FFF;}
+h3 a.uk-icon { float:right; display: inline; }
+.teamGrid { max-width:80%; float: right; }
+
+.uk-flex-first\@m div .uk-background-cover {
+    min-height:auto!important;
+    height:auto!important;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+#tm-mobile .uk-modal-dialog {
+    border:none;
+    background-color: #FAF8E7;
+}
+#tm-mobile * .btnRowLeft {
+    position: relative;
+    bottom:0px;
+    margin-top:30px;
+    margin-left:-30px
+}
+.innerGrid {padding-top:40px}
+
+#tm-mobile * .uk-close {color: #4D680F; }
+#tm-mobile * .uk-close:hover, #tm-mobile * .uk-close:focus { color: #9C9E0F;}
+#tm-mobile * .uk-nav-default { font-size: 22px;}
+
+.uk-nav-parent-icon { margin-top:60px;}
+.uk-icon.uk-navbar-toggle-icon > svg, button.uk-modal-close-full.uk-icon.uk-close > svg { width:24px; height:24px }
+.uk-nav-parent-icon > .uk-parent > a::after {
+    background-size:24px;
+    -webkit-filter: invert(29%) sepia(14%) saturate(3329%) hue-rotate(40deg) brightness(98%) contrast(89%); 
+    filter: invert(29%) sepia(14%) saturate(3329%) hue-rotate(40deg) brightness(98%) contrast(89%); 
+}
+  
+button.uk-modal-close-default.uk-icon.uk-close > svg>* { stroke-width: 4!important; }
+
+/* Intern */
+.intern * .uk-navbar-dropdown, .intern * .uk-navbar-container:not(.uk-navbar-transparent) { background: #465F0E; }
+.intern * .uk-navbar-dropdown-nav > li > a, .intern * .uk-navbar-nav > li > a { color: #FAF8E7; }
+.intern * .uk-navbar-dropdown-nav > li > a:hover, .intern * .uk-navbar-nav > li > a:hover, .intern * .uk-navbar-dropdown-nav > li.uk-active > a, .intern * .uk-navbar-nav > li.uk-active > a { color: #AFAA1B; }
+.intern * .btnVerein {display: none;visibility: hidden;}
+
+
+/* Devices */
+@media (max-width:1280px) {
+    .imgLogo a img { max-width: 150px;}
+    .btnRowRight * .uk-button {min-width: 195px;}
+}
+@media (min-width:960px) {
+    .innerSection > .uk-container { padding-left:0}
+}
+@media (max-width:960px) {
+    #content {margin-top:160px;padding-top: 60px;}
+    #content .uk-background-cover {background-image:none!important; height:auto!important; min-height:auto!important}
+    #content.home {margin-top:-60px}
+    #content.home .uk-background-cover {height:auto!important; min-height:calc(-40px + 100vh)!important}
+    #content>.uk-grid>div {margin-top:0}
+    .imgLogo { top:20px;}
+    .imgLogo a img { max-width: 150px;}
+    .imgLogo.fixed {position: absolute!important ;left: 50%; margin-left: -120px;top:12vh}
+    .imgLogo.fixed a img { max-width: 250px;}
+    .btnRowRight {position: relative; top: -10px; right: 0px; float: right;}
+    .uk-slideshow + .btnRowRight {top:-30px}
+    .innerSection {padding-top:0 ;}
+    .btnRowRight * .uk-button {min-width: 220px;}
+    .btnRowLeft * .uk-button {font-size:90% }
+    .uk-slideshow-items {min-height:50vh!important;}
+    .teamGrid {max-width:100%; float: left; margin-left:30px; margin-right:30px }
+    .intern * .uk-navbar-dropdown, .intern * .uk-navbar-container:not(.uk-navbar-transparent) {background: #FAF8E7;}
+    .innerGrid { padding:0 30px 20px}
+    
+}
+@media (max-width:660px) {
+    .imgLogo.fixed a img {max-width: 160px;}
+    .imgLogo.fixed { margin-left: -100px;top: 20px;}
+    .innerGrid { padding:0 20px 20px}
+}
+

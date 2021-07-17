@@ -1,0 +1,43 @@
+form:
+  properties:
+    title:
+      $type: textField
+      label: home.page.title
+      required: true
+    navigationTitle:
+      $type: textField
+      label: home.page.navigation.title
+    windowTitle:
+      $type: textField
+      label: home.page.window.title
+    hideInNav:
+      $type: checkBoxField
+      label: home.page.navigation.hide
+      buttonLabel: home.page.navigation.btn
+    image:
+      $type: damLinkField
+      showOptions: true
+      label: home.page.image
+      required: true
+    keywords:
+      $type: textField
+      label: home.page.keywords
+    description:
+      $type: textField
+      label: home.page.description
+  layout:
+    $type: tabbedLayout
+    tabs:
+      main:
+        label: vgz-homepage
+        fields:
+          - name: title
+          - name: navigationTitle
+          - name: windowTitle
+          - name: hideInNav
+          - name: image
+      meta:
+        label: home.page.tab.meta
+        fields:
+          - name: keywords
+          - name: description

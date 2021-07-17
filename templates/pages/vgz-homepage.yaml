@@ -1,0 +1,12 @@
+title: vgz-homepage
+templateScript: /vgz-module/templates/pages/vgz-homepage.ftl
+renderType: freemarker
+dialog: vgz-module:pages/vgz-homepage
+visible: true
+
+areas:
+  content:
+    renderType: freemarker
+    availableComponents:
+      textImage:
+        id: mtk:components/textImage

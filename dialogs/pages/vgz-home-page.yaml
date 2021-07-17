@@ -1,0 +1,44 @@
+form:
+  label: Page properties
+  tabs:
+    - name: tabMain
+      label: vgz-home-page
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+          label: home.page.title
+        - name: navigationTitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+          label: home.page.navigation.title
+        - name: windowTitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+          label: home.page.window.title
+        - name: hideInNav
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          defaultValue: false
+          i18n: true
+          type: Boolean
+          label:  home.page.navigation.hide
+          buttonLabel: hide
+    - name: tabMeta
+      label: Meta Data
+      fields:
+        - name: keywords
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+          label: keywords
+          rows: 3
+        - name: description
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+          label: description
+          rows: 5
+
+actions:
+  commit:
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

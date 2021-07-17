@@ -1,0 +1,12 @@
+title: vgz-page-text
+templateScript: /vgz-module/templates/pages/vgz-page-text.ftl
+renderType: freemarker
+dialog: vgz-module:pages/vgz-page-text
+visible: true
+
+areas:
+  content:
+    renderType: freemarker
+    availableComponents:
+      textImage:
+        id: mtk:components/textImage
