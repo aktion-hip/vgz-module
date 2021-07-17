@@ -1,4 +1,6 @@
-# vgz-module
+# VGZ CMS
+
+Magnolia light module for VGZ.
 
 <!--
 Provide a one sentence description of what your light module
