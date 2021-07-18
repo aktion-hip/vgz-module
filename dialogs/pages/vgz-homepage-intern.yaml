@@ -1,44 +1,38 @@
 form:
-  label: Page properties
-  tabs:
-    - name: tabMain
-      label: vgz-homepage-intern
-      fields:
-        - name: title
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          i18n: true
-          label: title
-        - name: navigationTitle
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          i18n: true
-          label: navigation title
-        - name: windowTitle
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          i18n: true
-          label: window title
-        - name: hideInNav
-          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-          defaultValue: false
-          i18n: false
-          type: Boolean
-          label:  hide In Navigation
-          buttonLabel: hide
-    - name: tabMeta
-      label: Meta Data
-      fields:
-        - name: keywords
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          i18n: true
-          label: keywords
-          rows: 3
-        - name: description
-          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          i18n: true
-          label: description
-          rows: 5
-
-actions:
-  commit:
-    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
-  cancel:
-    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition
+  properties:
+    title:
+      $type: textField
+      label: home.page.title
+      required: true
+    navigationTitle:
+      $type: textField
+      label: home.page.navigation.title
+    windowTitle:
+      $type: textField
+      label: home.page.window.title
+    image:
+      $type: damLinkField
+      showOptions: true
+      label: home.page.image
+      required: true
+    keywords:
+      $type: textField
+      label: home.page.keywords
+    description:
+      $type: textField
+      label: home.page.description
+  layout:
+    $type: tabbedLayout
+    tabs:
+      main:
+        label: vgz-homepage
+        fields:
+          - name: title
+          - name: navigationTitle
+          - name: windowTitle
+          - name: image
+      meta:
+        label: home.page.tab.meta
+        fields:
+          - name: keywords
+          - name: description

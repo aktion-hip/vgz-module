@@ -15,8 +15,9 @@
         </div>
         <div class="uk-grid-item-match uk-flex-middle uk-width-1-2">
             <div class="uk-panel uk-margin uk-text-right">
-
-            <div class="btnVerein"><a href="intern.php">Verein</a></div>
+                [#assign root = cmsfn.root(content, "mgnl:page")!content ]
+                [#assign intern = cmsfn.contentListByTemplateId(cmsfn.asJCRNode(root), "vgz-module:pages/vgz-homepage-intern") ]
+                <div class="btnVerein"><a href="${cmsfn.link(cmsfn.asContentMap(intern[0]))}">Verein</a></div>
             </div>
         </div>
         </div>

@@ -10,10 +10,6 @@ form:
     windowTitle:
       $type: textField
       label: home.page.window.title
-    hideInNav:
-      $type: checkBoxField
-      label: home.page.navigation.hide
-      buttonLabel: home.page.navigation.btn
     image:
       $type: damLinkField
       showOptions: true
@@ -34,7 +30,6 @@ form:
           - name: title
           - name: navigationTitle
           - name: windowTitle
-          - name: hideInNav
           - name: image
       meta:
         label: home.page.tab.meta

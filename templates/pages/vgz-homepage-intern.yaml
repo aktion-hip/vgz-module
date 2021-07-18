@@ -4,3 +4,9 @@ renderType: freemarker
 dialog: vgz-module:pages/vgz-homepage-intern
 visible: true
 
+areas:
+  content:
+    renderType: freemarker
+    availableComponents:
+      textImage:
+        id: mtk:components/textImage

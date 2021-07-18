@@ -2,36 +2,75 @@
 <html xml:lang="${cmsfn.language()}" lang="${cmsfn.language()}">
   <head>
     [@cms.page /]
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${content.windowTitle!content.title!}</title>
-    <meta name="description" content="${content.description!""}" />
-    <meta name="keywords" content="${content.keywords!""}" />
 
-    [#-- To load resources you can link them manually (e.g. line below) --]
-      [#-- <link rel="stylesheet" type="text/css" href="${ctx.contextPath}/.resources/vgz-module/webresources/css/bootstrap.css" media="all" /> --]
-      [#-- <script src="${ctx.contextPath}/.resources/vgz-module/webresources/js/jquery.js"></script> --]
-    [#-- or via theme --]
-      [#-- [#assign site = sitefn.site()!] --]
-      [#-- [#assign theme = sitefn.theme(site)!] --]
-      [#-- [#list theme.cssFiles as cssFile] --]
-      [#--   [#if cssFile.conditionalComment?has_content]<!--[if ${cssFile.conditionalComment}]>[/#if] --]
-      [#--     <link rel="stylesheet" type="text/css" href="${cssFile.link}" media="${cssFile.media}" /> --]
-      [#--   [#if cssFile.conditionalComment?has_content]<![endif]-->[/#if] --]
-      [#-- [/#list] --]
-      [#-- [#list theme.jsFiles as jsFile] --]
-      [#--   <script src="${jsFile.link}"></script> --]
-      [#-- [/#list] --]
-    [#-- uncomment next line to use resfn templating functions to load all css which matches a globbing pattern --]
-      [#-- ${resfn.css(["/vgz-module/.*css"])!} --]
+    [#include "../include/functions.ftl"]
+    [#include "../include/head.ftl"]
+
+    [#assign site = sitefn.site()!]
+    [#assign theme = sitefn.theme(site)!]
+    [#list theme.cssFiles as cssFile]
+        [#if cssFile.conditionalComment?has_content]<!--[if ${cssFile.conditionalComment}]>[/#if]
+          <link rel="stylesheet" type="text/css" href="${cssFile.link}" media="${cssFile.media}" />
+        [#if cssFile.conditionalComment?has_content]<![endif]-->[/#if]
+    [/#list]
+    [#list theme.jsFiles as jsFile]
+      <script src="${jsFile.link}"></script>
+    [/#list]
   </head>
-  <body class="vgz-homepage-intern ${cmsfn.language()}">
+  <body class="vgz-homepage ${cmsfn.language()}">
+    <div class="tm-page intern">
+      [#include "../include/navigation.ftl"]
 
-    <div class="container">
-      <h1>vgz-homepage-intern works!</h1>
+  <!-- Navigation over Image left -->
+  <div class="btnRow btnRowLeft uk-visible@m">
+    <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid" uk-grid="">
+      <div class="el-item"><a class="el-content uk-button uk-button-default" href="home.php">Zurück</a></div>
     </div>
+  </div>
+  
+    
+  <!-- Content - 2 Cols -->
+  <div id="content" class="uk-section-muted uk-section uk-padding-remove-vertical">
+    <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
+      <div class="uk-width-1-2@m">
 
-    [#-- use resfn to load all js which matches the globbing pattern or link resources manually or via theme --]
-    [#-- ${resfn.js(["/vgz-module/.*js"])!} --]
+        <!-- Content - Col Left -->
+        <div class="uk-section-muted">
+          <div style="background-image: url(${damfn.getAssetLink(content.image!)}); height: calc(-60px + 100vh);" class="uk-background-norepeat uk-background-cover uk-background-center-center uk-flex" uk-height-viewport="offset-top: true;">
+            <div class="uk-width-1-1">
+              <div class="tm-grid-expand uk-child-width-1-1 uk-grid-margin uk-grid uk-grid-stack" uk-grid="">
+                <div class="uk-first-column">
+                  <img src="${damfn.getAssetLink(content.image!)}" class="el-image uk-hidden@m" alt="Verein StadtOase Zürich" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="uk-grid-item-match uk-width-1-2@m">
+
+        <!-- Content - Col Right -->
+        <div class="uk-section-muted uk-section uk-section-small innerSection">
+          <div class="uk-container">
+            <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
+              <div class="uk-width-2-3@m"> 
+                <h1>${content.title!}</h1>
+                [@cms.area name="content"/]
+              </div>
+              <div class="uk-width-1-3@m"></div>
+            </div>
+          </div>
+        </div>       
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+      [#include "../include/footer.ftl"]
+    </<div>
   </body>
 </html>
