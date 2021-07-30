@@ -16,6 +16,12 @@
                 [/#if]
               [/#if]
             [/#list]
+            [#if !isInIntern(content)]
+              [#assign root = cmsfn.root(content, "mgnl:page")!content ]
+              [#assign intern = cmsfn.contentListByTemplateId(cmsfn.asJCRNode(root), "vgz-module:pages/vgz-homepage-intern") ]
+              [#assign internHome = cmsfn.asContentMap(intern[0]) ]
+              <li><a href="${cmsfn.link(internHome)}">${internHome.navigationTitle!"Verein"}</a></li>
+            [/#if]
           </ul>
           <!-- Navigation Placeholder End -->
         </div>
