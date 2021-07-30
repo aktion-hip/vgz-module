@@ -1,0 +1,4 @@
+title: vgzPerson
+renderType: freemarker
+templateScript: /vgz-module/templates/components/vgzPerson.ftl
+dialog: vgz-module:components/vgzPerson

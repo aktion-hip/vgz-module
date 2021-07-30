@@ -1,0 +1,12 @@
+title: vgzPersonen
+renderType: freemarker
+templateScript: /vgz-module/templates/components/vgzPersonen.ftl
+dialog: vgz-module:components/vgzPersonen
+
+areas:
+  personList:
+    templateScript: /vgz-module/templates/components/vgzPersonListArea.ftl
+    type: list
+    availableComponents:
+      vgzPerson:
+        id: vgz-module:components/vgzPerson

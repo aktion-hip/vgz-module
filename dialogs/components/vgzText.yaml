@@ -1,0 +1,36 @@
+form:
+  properties:
+    headlineLevel:
+      $type: comboBoxField
+      defaultValue: medium
+      label: vgzText.headlineLevel
+      i18n: true
+      datasource:
+        $type: optionListDatasource
+        options:
+          - name: big
+            value: big
+            label: big
+          - name: medium
+            value: medium
+            label: medium
+          - name: small
+            value: small
+            label: small
+    headline:
+      $type: textField
+      label: vgzText.headline
+      i18n: true
+    text:
+      $type: richTextField
+      i18n: true
+      required: true
+      tables: true
+  layout:
+    $type: tabbedLayout
+    tabs:
+      - name: tabText
+        fields:
+          - name: headlineLevel
+          - name: headline
+          - name: text

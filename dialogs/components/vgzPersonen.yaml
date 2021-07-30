@@ -1,0 +1,5 @@
+form:
+  properties:
+    subtitle:
+      $type: textField
+      i18n: true

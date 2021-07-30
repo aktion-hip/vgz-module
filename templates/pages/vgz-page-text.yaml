@@ -5,8 +5,21 @@ dialog: vgz-module:pages/vgz-page-text
 visible: true
 
 areas:
-  content:
+  left:
     renderType: freemarker
     availableComponents:
-      textImage:
-        id: mtk:components/textImage
+      vgzText:
+        id: vgz-module:components/vgzText
+      linkList:
+        id: mtk2:components/linkList
+      vgzPerson:
+        id: vgz-module:components/vgzPersonen
+  rigth:
+    renderType: freemarker
+    availableComponents:
+      vgzText:
+        id: vgz-module:components/vgzText
+      linkList:
+        id: mtk2:components/linkList
+      vgzPerson:
+        id: vgz-module:components/vgzPersonen

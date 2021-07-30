@@ -1,0 +1,4 @@
+title: vgzText
+renderType: freemarker
+templateScript: /vgz-module/templates/components/vgzText.ftl
+dialog: vgz-module:components/vgzText

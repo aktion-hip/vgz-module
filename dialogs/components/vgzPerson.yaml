@@ -1,0 +1,21 @@
+label: vgzPerson.component
+form:
+  properties:
+    name:
+      $type: textField
+      label: vgzPerson.name
+      i18n: true
+      required: true
+    image:
+      label: vgzPerson.image
+      $type: damLinkField
+    text:
+      $type: richTextField
+      label: vgzPerson.text
+      i18n: true
+      required: true
+    mail:
+      label: vgzPerson.mail
+      $type: textField
+      i18n: true
+      required: true

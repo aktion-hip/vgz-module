@@ -8,5 +8,7 @@ areas:
   content:
     renderType: freemarker
     availableComponents:
-      textImage:
-        id: mtk:components/textImage
+      vgzText:
+        id: vgz-module:components/vgzText
+      linkList:
+        id: mtk2:components/linkList
