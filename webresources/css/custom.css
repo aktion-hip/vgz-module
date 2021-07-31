@@ -130,3 +130,6 @@ button.uk-modal-close-default.uk-icon.uk-close > svg>* { stroke-width: 4!importa
         width: 80%;
     }
 }
+h4 {
+    font-style: italic;
+}

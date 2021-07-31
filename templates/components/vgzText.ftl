@@ -17,7 +17,7 @@
 
     [#-- Text --]
     [#if content.text?has_content]
-        ${cmsfn.decode(content).text!}
+        ${cmsfn.decode(content).text!?replace("<table .+>", "<table class=\"uk-table uk-table-divider uk-table-justify uk-table-small\">", "r")}
     [/#if]
 
 </div><!-- end ${divClass} -->

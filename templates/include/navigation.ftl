@@ -10,9 +10,15 @@
             [#list cmsfn.children(root, "mgnl:page") as child ]
               [#if cmsfn.metaData(child, "mgnl:template") != "vgz-module:pages/vgz-homepage-intern"]
                 [#if content.@path == child.@path ]
-                  <li class="uk-parent uk-active"><a href="${cmsfn.link(child)}">${child.title!}</a></li>
+                  <li class="uk-parent uk-active">
+                    <a href="${cmsfn.link(child)}">${child.title!}</a>
+                    [@subNavigation child /]
+                  </li>
                 [#else]
-                  <li><a href="${cmsfn.link(child)}">${child.title!}</a></li>
+                  <li>
+                    <a href="${cmsfn.link(child)}">${child.title!}</a>
+                    [@subNavigation child /]
+                  </li>
                 [/#if]
               [/#if]
             [/#list]
