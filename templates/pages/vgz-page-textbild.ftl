@@ -4,14 +4,13 @@
     [@cms.page /]
 
     [#include "../include/functions.ftl"]
+    [#include "../include/macros.ftl"]
     [#include "../include/head.ftl"]
 
     [#assign site = sitefn.site()!]
     [#assign theme = sitefn.theme(site)!]
     [#list theme.cssFiles as cssFile]
-        [#if cssFile.conditionalComment?has_content]<!--[if ${cssFile.conditionalComment}]>[/#if]
-          <link rel="stylesheet" type="text/css" href="${cssFile.link}" media="${cssFile.media}" />
-        [#if cssFile.conditionalComment?has_content]<![endif]-->[/#if]
+      <link rel="stylesheet" type="text/css" href="${cssFile.link}" media="${cssFile.media}" />
     [/#list]
     [#list theme.jsFiles as jsFile]
       <script src="${jsFile.link}"></script>
@@ -31,7 +30,7 @@
             <div class="el-item"> <a class="el-content uk-button uk-button-default" href="#">Mitgliedschaften </a> </div>
           </div>
         </div>        
-          
+
         <!-- Content - 2 Cols -->
         <div id="content" class="uk-section-muted uk-section uk-padding-remove-vertical">
           <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">

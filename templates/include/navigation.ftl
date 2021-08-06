@@ -5,11 +5,11 @@
     <div class="uk-container">
       <nav class="uk-navbar" uk-navbar="{align:left,boundary:!.uk-navbar-container}">
         <div class="uk-navbar-center">
-          <!-- Navigation Placeholder Start -->
+          <!-- Navigation Start -->
           <ul class="uk-navbar-nav">
             [#list cmsfn.children(root, "mgnl:page") as child ]
               [#if cmsfn.metaData(child, "mgnl:template") != "vgz-module:pages/vgz-homepage-intern"]
-                [#if content.@path == child.@path ]
+                [#if (content.@path == child.@path) || isAncestorOf(child, content) ]
                   <li class="uk-parent uk-active">
                     <a href="${cmsfn.link(child)}">${child.title!}</a>
                     [@subNavigation child /]
@@ -29,7 +29,7 @@
               <li><a href="${cmsfn.link(internHome)}">${internHome.navigationTitle!"Verein"}</a></li>
             [/#if]
           </ul>
-          <!-- Navigation Placeholder End -->
+          <!-- Navigation End -->
         </div>
       </nav>
     </div>

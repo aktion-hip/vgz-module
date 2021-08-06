@@ -7,6 +7,10 @@ cssFiles:
     addFingerPrint: true
     link: /.resources/vgz-module/webresources/css/custom.css
     media: all
+  vgz-custom-bl:
+    addFingerPrint: true
+    link: /.resources/vgz-module/webresources/css/custom-bl.css
+    media: all
 jsFiles:
   uikit:
     addFingerPrint: true

@@ -4,6 +4,7 @@
     [@cms.page /]
 
     [#include "../include/functions.ftl"]
+    [#include "../include/macros.ftl"]
     [#include "../include/head.ftl"]
 
     [#assign site = sitefn.site()!]

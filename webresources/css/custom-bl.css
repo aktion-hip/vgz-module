@@ -1,0 +1,17 @@
+@media (min-width:960px) {
+    .left-container {
+        margin-left: calc(20%);
+    }
+    .left-container h2:first-child, 
+    .left-container h3:first-child, 
+    .left-container h4:first-child, 
+    .left-container p:first-child {
+        margin-top: 51px;
+    }
+    .left-container .text-section {
+        width: 80%;
+    }
+}
+h4 {
+    font-style: italic;
+}
