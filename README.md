@@ -2,11 +2,13 @@
 
 Magnolia light module for VGZ.
 
-<!--
-Provide a one sentence description of what your light module
-provides.
--->
+## Installation
 
+```
+mgnl jumpstart
+cd light-modules
+git clone https://github.com/aktion-hip/vgz-module.git
+```
 
 ## Features
 
