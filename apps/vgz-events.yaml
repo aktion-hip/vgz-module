@@ -1,0 +1,18 @@
+!content-type:vgz-event
+name: vgz-events
+
+icon: icon-tasks-app
+subApps:
+  detail:
+    form:
+      properties:
+        teaser:
+          rows: 2
+          maxLength: 500
+        description:
+          rows: 5
+          maxLength: 5000
+        start_date:
+          fieldType: date
+        end_date:
+          fieldType: date

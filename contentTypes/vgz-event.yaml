@@ -1,0 +1,32 @@
+datasource:
+  workspace: vgz_events
+  rootPath: /
+  namespaces:
+    vgz: https://www.stadtoase.ch/jcr/1.0/vgz
+  autoCreate: true
+
+model:
+  nodeType: vgz:event
+  properties:
+    - name: title
+      label: vgz.event.title
+      required: true
+    - name: teaser
+      label: vgz.event.teaser
+    - name: start_date
+      required: true
+      type: Date
+      label: vgz.event.start.date
+    - name: start_time
+      label: vgz.event.start.time
+    - name: end_date
+      type: Date
+      label: vgz.event.end.date
+    - name: end_time
+      label: vgz.event.end.time
+    - name: description
+      type: richText
+      label: vgz.event.description
+    - name: image
+      type: asset
+      label: vgz.event.image

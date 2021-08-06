@@ -26,6 +26,7 @@ form:
       i18n: true
       required: true
       tables: true
+      source: true
   layout:
     $type: tabbedLayout
     tabs:
