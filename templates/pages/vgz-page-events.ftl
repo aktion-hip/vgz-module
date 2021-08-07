@@ -63,14 +63,13 @@
           <div class="uk-container">
             <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
               <div class="uk-width-2-3@m">                
-                [#assign events = cmsfn.contentByPath("/", "vgz_events")]
-                [#list cmsfn.children(events, "vgz:event") as event]
+                [#list getEvents() as event]
                   <div class="vk-event">
                     <div class="vk-event_title">
                       ${event.title!"???"}
                     </div>
                     <div class="vk-event_date-time uk-text-small">
-                      [@showEventDate event.start_date event.start_time! /]
+                      [@showEventDate event.start_date event.start_time!"" event.end_date!"" event.end_time!"" /]
                     </div>
                   </div>
                 [/#list]

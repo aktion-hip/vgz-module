@@ -17,7 +17,7 @@
   [/#if]
 [/#macro]
 
-[#macro showEventDate eventDate eventTime]
+[#macro showEventDate eventDate eventTime endDate endTime]
   [#setting locale="de_DE"]
   <div class="vk-event_date-time uk-text-small">
     <div class="vk-event_date-weekday">
@@ -29,5 +29,15 @@
     <div class="vk-event_date-time">
       ${eventTime!}
     </div>
+    [#if endDate?is_date_like]
+      <div class="vk-event_date-day">
+        bis ${endDate?date?string["d. MMMM yyyy"]}
+      </div>
+    [/#if]
+    [#if endTime?length > 0]
+      <div class="vk-event_date-time">
+        ${endTime}
+      </div>
+    [/#if]
   </div>
 [/#macro]

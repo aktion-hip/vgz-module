@@ -16,3 +16,9 @@
   [#assign ancestors = cmsfn.ancestors(toCheck, "mgnl:page") ]
   [#return ancestors?seq_contains(item)]
 [/#function]
+
+[#function getEvents]
+  [#assign events = cmsfn.contentByPath("/", "vgz_events")]
+  [#assign all = cmsfn.children(events, "vgz:event")]
+  [#return all?filter(e -> (e.end_date??)?then(e.end_date >= .now, e.start_date >= .now))]
+[/#function]
