@@ -18,7 +18,6 @@
 [/#macro]
 
 [#macro showEventDate eventDate eventTime endDate endTime]
-  [#setting locale="de_DE"]
   <div class="vk-event_date-time uk-text-small">
     <div class="vk-event_date-weekday">
       ${eventDate?date?string["EEEE"]}

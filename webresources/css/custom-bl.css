@@ -37,3 +37,12 @@ h4 {
     color: #AFAA1B;
     cursor: pointer;
 }
+.vk-event.active {
+    color: #AFAA1B;
+}
+.vk-event_details {
+    display: none;
+}
+.vk-event_details.active {
+    display: block;
+}

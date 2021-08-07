@@ -19,6 +19,6 @@
 
 [#function getEvents]
   [#assign events = cmsfn.contentByPath("/", "vgz_events")]
-  [#assign all = cmsfn.children(events, "vgz:event")]
+  [#assign all = cmsfn.children(events, "vgz:event")?sort_by("start_date")]
   [#return all?filter(e -> (e.end_date??)?then(e.end_date >= .now, e.start_date >= .now))]
 [/#function]

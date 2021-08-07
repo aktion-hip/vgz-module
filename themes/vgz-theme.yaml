@@ -24,6 +24,9 @@ jsFiles:
   custom:
     addFingerPrint: true
     link: /.resources/vgz-module/webresources/js/custom.js
+  custom-bl:
+    addFingerPrint: true
+    link: /.resources/vgz-module/webresources/js/custom-bl.js
 imaging:
   class: info.magnolia.templating.imaging.VariationAwareImagingSupport
   variations:
