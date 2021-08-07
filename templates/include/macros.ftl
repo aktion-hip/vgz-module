@@ -16,3 +16,18 @@
     <!-- Sub-Navigation End -->
   [/#if]
 [/#macro]
+
+[#macro showEventDate eventDate eventTime]
+  [#setting locale="de_DE"]
+  <div class="vk-event_date-time uk-text-small">
+    <div class="vk-event_date-weekday">
+      ${eventDate?date?string["EEEE"]}
+    </div>
+    <div class="vk-event_date-day">
+      ${eventDate?date?string["d. MMMM yyyy"]}
+    </div>
+    <div class="vk-event_date-time">
+      ${eventTime!}
+    </div>
+  </div>
+[/#macro]

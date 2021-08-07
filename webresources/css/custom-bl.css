@@ -15,3 +15,25 @@
 h4 {
     font-style: italic;
 }
+
+.vk-event {
+    display: flex;
+}
+.vk-event_title {
+    flex: 2;
+}
+.vk-event_date-time {
+    flex: 1;
+}
+.vk-event_date-time div {
+    text-align: right;
+}
+.vk-event:not(:last-child) {
+    padding-bottom: 12px;
+    border-bottom: 2px solid #4D680F;
+    margin-bottom: 10px;
+}
+.vk-event:hover {
+    color: #AFAA1B;
+    cursor: pointer;
+}

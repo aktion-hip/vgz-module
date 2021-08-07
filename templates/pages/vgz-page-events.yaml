@@ -1,0 +1,6 @@
+title: vgz-page-events
+templateScript: /vgz-module/templates/pages/vgz-page-events.ftl
+renderType: freemarker
+dialog: vgz-module:pages/vgz-page-events
+visible: true
+
