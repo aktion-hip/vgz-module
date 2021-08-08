@@ -22,3 +22,7 @@
   [#assign all = cmsfn.children(events, "vgz:event")?sort_by("start_date")]
   [#return all?filter(e -> (e.end_date??)?then(e.end_date >= .now, e.start_date >= .now))]
 [/#function]
+
+[#function hasChildren item]
+  [#return cmsfn.children(item, "mgnl:page")?size > 0]
+[/#function]

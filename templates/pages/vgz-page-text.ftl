@@ -45,6 +45,8 @@
         </div>
       </div>
 
+      [@childNavRight content /]
+
       <div class="uk-grid-item-match uk-width-1-2@m uk-flex-first">
         <!-- Content - Col Right -->
         <div class="uk-section-muted uk-section uk-section-small innerSection">

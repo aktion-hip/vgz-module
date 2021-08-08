@@ -1,3 +1,4 @@
+[#-- displays the dropdown menu on the main navigation --]
 [#macro subNavigation parent]
   [#assign children = cmsfn.children(parent, "mgnl:page") ]
   [#if children?size > 0]
@@ -7,7 +8,7 @@
         <div>
           <ul class="uk-nav uk-navbar-dropdown-nav">
             [#list children as child ]
-            <li><a href="${cmsfn.link(child)}">${child.title!}</a></li>
+              <li><a href="${cmsfn.link(child)}">${child.title!}</a></li>
             [/#list]	  
           </ul>
         </div>
@@ -17,6 +18,67 @@
   [/#if]
 [/#macro]
 
+[#-- displays the subnavigation menu on the mobile screen --]
+[#macro mobNavigation parent]
+  [#assign children = cmsfn.children(parent, "mgnl:page") ]
+  [#if children?size > 0]
+    <!-- Sub-Navigation Start -->
+    <ul class="uk-nav-sub">
+      [#list children as child ]
+        <li><a href="${cmsfn.link(child)}">${child.title!}</a></li>
+      [/#list]
+    </ul>
+    <!-- Sub-Navigation End -->
+  [/#if]
+[/#macro]
+
+[#-- displays the navigation to a page's children (computer or mobile) --]
+[#macro childNavigation parent isLeft ]
+  [#assign children = cmsfn.children(parent, "mgnl:page") ]
+  [#if children?size > 0]
+    [#if isLeft]
+      <!-- computer (will be hidden on mobile) -->
+      <div class="vgz-child_nav">
+        <div class="btnRow btnRowLeft uk-visible@m">
+          <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid" uk-grid="">
+            [#list children as child ]
+              <div class="el-item"> <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.title!}</a> </div>
+            [/#list]	  
+          </div>
+        </div>
+      </div>
+    [#else]
+      <!-- mobile (will be hidden on computer) -->
+      <div class="vgz-child_nav-mobile">
+        <div class="btnRow btnRowRight">
+          <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid" uk-grid="">
+            [#list children as child ]
+              <div class="el-item"> <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.title!}</a> </div>
+            [/#list]
+          </div>
+        </div>        
+      </div>
+    [/#if]
+  [/#if]
+[/#macro]
+
+[#-- displays the navigation to a page's children --]
+[#macro childNavRight parent ]
+  [#assign children = cmsfn.children(parent, "mgnl:page") ]
+  [#if children?size > 0]
+    <div class="btnRow btnRowRight">
+      <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">
+        [#list children as child ]
+          <div class="el-item uk-grid-margin uk-first-column">
+            <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.title!}</a>
+          </div>                      
+        [/#list]
+      </div>
+    </div>  
+  [/#if]
+[/#macro]
+
+[#-- displays the event date on a event list --]
 [#macro showEventDate eventDate eventTime endDate endTime]
   <div class="vk-event_date-time uk-text-small">
     <div class="vk-event_date-weekday">

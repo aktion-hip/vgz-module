@@ -46,3 +46,20 @@ h4 {
 .vk-event_details.active {
     display: block;
 }
+
+@media screen and (min-width:960px) {
+    .vgz-child_nav-mobile {
+        display: none;
+    }
+}
+@media screen and (max-width:959px) {
+    .vgz-child_nav {
+        display: none;
+    }
+    .vgz-child_nav-mobile {
+        position: relative;
+    }
+    .uk-slideshow + .vgz-child_nav-mobile {
+        top:-20px
+    }
+}

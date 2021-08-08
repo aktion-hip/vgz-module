@@ -22,14 +22,7 @@
         [#include "../include/navigation.ftl"]
 
         <!-- Navigation over Image left -->
-        <div class="btnRow btnRowLeft uk-visible@m">
-          <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid" uk-grid="">
-            <div class="el-item"> <a class="el-content uk-button uk-button-default" href="#">Sauna Abonnement </a> </div>
-            <div class="el-item"> <a class="el-content uk-button uk-button-default" href="#">Massage buchen </a> </div>
-            <div class="el-item"> <a class="el-content uk-button uk-button-default" href="agenda.php">Agenda </a> </div>
-            <div class="el-item"> <a class="el-content uk-button uk-button-default" href="#">Mitgliedschaften </a> </div>
-          </div>
-        </div>        
+        [@childNavigation content true /]
 
         <!-- Content - 2 Cols -->
         <div id="content" class="uk-section-muted uk-section uk-padding-remove-vertical">
@@ -55,12 +48,7 @@
                         </div>
 
                         <!-- Navigation under Logo right // Placed here for Mobile View -->
-                        <div id="subNav" class="btnRow btnRowRight">
-                          <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid" uk-grid="">
-                            <div class="el-item"> <a class="el-content uk-button uk-button-default" href="#">Abonnement kaufen</a> </div>
-                            <div class="el-item"> <a class="el-content uk-button uk-button-default" href="#">Jetzt Mitglied werden</a> </div>                      
-                          </div>
-                        </div>                        
+                        [@childNavigation content false /]
 
                       </div>
                     </div>

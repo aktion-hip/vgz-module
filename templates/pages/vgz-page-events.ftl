@@ -82,7 +82,8 @@
         <div class="uk-section-muted uk-section uk-section-small innerSection">
           <div class="uk-container">
             <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
-              <div class="uk-width-2-3@m">                
+              <div class="uk-width-2-3@m">
+                <h1>${content.title!}</h1>
                 [#list events as event]
                   <div class="vk-event" onclick='toggleEventDetails("${event.name}", this)'>
                     <div class="vk-event_title">
