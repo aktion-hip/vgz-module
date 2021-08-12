@@ -21,6 +21,7 @@
       <div class="tm-page ${clsIntern}">
         [#assign root = cmsfn.root(content, "mgnl:page") ]
         [#include "../include/navigation.ftl"]
+        [@childNavText content true /]
 
   <!-- Content - 2 Cols -->
   <div id="content" class="uk-section-muted uk-section uk-padding-remove-vertical">
@@ -45,7 +46,7 @@
         </div>
       </div>
 
-      [@childNavRight content /]
+      [@childNavText content false /]
 
       <div class="uk-grid-item-match uk-width-1-2@m uk-flex-first">
         <!-- Content - Col Right -->

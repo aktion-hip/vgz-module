@@ -63,18 +63,36 @@
 [/#macro]
 
 [#-- displays the navigation to a page's children --]
-[#macro childNavRight parent ]
+[#macro childNavText parent isTop ]
   [#assign children = cmsfn.children(parent, "mgnl:page") ]
   [#if children?size > 0]
-    <div class="btnRow btnRowRight">
-      <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">
-        [#list children as child ]
-          <div class="el-item uk-grid-margin uk-first-column">
-            <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.title!}</a>
-          </div>                      
-        [/#list]
+    [#if isTop]
+      <!-- mobile (will be hidden on computer) -->
+      <div class="vgz-child_nav-mobile vgz-top">
+        <div class="btnRow btnRowRight">
+          <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">
+            [#list children as child ]
+              <div class="el-item uk-grid-margin uk-first-column">
+                <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.title!}</a>
+              </div>                      
+            [/#list]
+          </div>
+        </div>
+      </div>      
+    [#else]
+      <!-- computer (will be hidden on mobile) -->
+      <div class="vgz-child_nav">
+        <div class="btnRow btnRowRight">
+          <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">
+            [#list children as child ]
+              <div class="el-item uk-grid-margin uk-first-column">
+                <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.title!}</a>
+              </div>                      
+            [/#list]
+          </div>
+        </div>
       </div>
-    </div>  
+    [/#if]
   [/#if]
 [/#macro]
 

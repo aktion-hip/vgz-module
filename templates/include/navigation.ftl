@@ -24,15 +24,25 @@
                 [#list cmsfn.children(root, "mgnl:page") as child ]
                   [#if cmsfn.metaData(child, "mgnl:template") != "vgz-module:pages/vgz-homepage-intern"]
                     [#if (content.@path == child.@path) || isAncestorOf(child, content) ]
-                      <li class="uk-active ${hasChildren(child)?then('uk-parent', '')}">
+                      <li class="uk-active">
                         <a href="${cmsfn.link(child)}">${child.title!}</a>
-                        [@mobNavigation child /]
                       </li>
+                      [#if hasChildren(child)]
+                        <li class="uk-active uk-parent vgz-mobile-parent">
+                          <a href="${cmsfn.link(child)}"></a>
+                          [@mobNavigation child /]
+                        </li>
+                      [/#if]
                     [#else]
-                      <li class="${hasChildren(child)?then('uk-parent', '')}">
+                      <li>
                         <a href="${cmsfn.link(child)}">${child.title!}</a>
-                        [@mobNavigation child /]
                       </li>
+                      [#if hasChildren(child)]
+                        <li class="uk-parent vgz-mobile-parent">
+                          <a href="${cmsfn.link(child)}"></a>
+                          [@mobNavigation child /]
+                        </li>
+                      [/#if]
                     [/#if]
                   [/#if]
                 [/#list]
