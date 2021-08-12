@@ -1,7 +1,0 @@
-appLauncherLayout:
-  groups:
-    - name: vgz
-      label: VGZ
-      apps:
-        - name: vgz-events
-      permissions: superuser, vgz-editor
