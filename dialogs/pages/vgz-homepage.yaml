@@ -21,6 +21,23 @@ form:
     description:
       $type: textField
       label: home.page.description
+    newsletter:
+      $type: pageLinkField
+      label: home.page.footer.newsletter
+    sopa:
+      $type: pageLinkField
+      label: home.page.footer.sopa
+    blackboard:
+      $type: pageLinkField
+      label: home.page.footer.blackboard
+    facebook:
+      $type: pageLinkField
+      textInputAllowed: true
+      label: home.page.footer.facebook
+    instagram:
+      $type: pageLinkField
+      textInputAllowed: true
+      label: home.page.footer.instagram
   layout:
     $type: tabbedLayout
     tabs:
@@ -36,3 +53,11 @@ form:
         fields:
           - name: keywords
           - name: description
+      footer:
+        label: home.page.tab.footer
+        fields:
+          - name: newsletter
+          - name: sopa
+          - name: blackboard
+          - name: facebook
+          - name: instagram

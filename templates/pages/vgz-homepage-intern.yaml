@@ -9,4 +9,4 @@ areas:
     renderType: freemarker
     availableComponents:
       textImage:
-        id: mtk2:components/textImage
+        id: vgz-module:components/vgzText

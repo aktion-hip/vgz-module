@@ -5,11 +5,22 @@
             <div class="uk-width-1-2">
                 <div class="uk-panel">
                 <ul class="uk-nav uk-nav-default">
-                    <li><a href="#">Newsletter</a></li>
-                    <li><a href="#">Sonnenpark</a></li>
-                    <li><a href="#">Blackboard</a></li>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
+                    [#assign root = getSiteRoot(content)]
+                    [#if root.newsletter?has_content]
+                        <li><a href="${cmsfn.link(cmsfn.contentById(root.newsletter))}" target="_blank">Newsletter</a></li>
+                    [/#if]
+                    [#if root.sopa?has_content]
+                        <li><a href="${cmsfn.link(cmsfn.contentById(root.sopa))}" target="_blank">Sonnenpark</a></li>
+                    [/#if]
+                    [#if root.blackboard?has_content]
+                        <li><a href="${cmsfn.link(cmsfn.contentById(root.blackboard))}">Blackboard</a></li>
+                    [/#if]
+                    [#if root.facebook?has_content]
+                        <li><a href="${cmsfn.externalLink(root, "facebook")}" target="_blank">Facebook</a></li>
+                    [/#if]
+                    [#if root.instagram?has_content]
+                        <li><a href="${cmsfn.externalLink(root, "instagram")}" target="_blank">Instagram</a></li>
+                    [/#if]
                 </ul>
                 </div>
             </div>

@@ -26,3 +26,9 @@
 [#function hasChildren item]
   [#return cmsfn.children(item, "mgnl:page")?size > 0]
 [/#function]
+
+[#function getSiteRoot content]
+  [#assign root = cmsfn.children(cmsfn.contentByPath("/"), "mgnl:page")]
+  [#return (root?size > 0)?then(root[0], content)]
+[/#function]
+
