@@ -1,7 +1,9 @@
 !content-type:vgz-event
 name: vgz-events
-
 icon: icon-tasks-app
+permissions:
+  roles:
+    - vgz-editor
 subApps:
   detail:
     form:
