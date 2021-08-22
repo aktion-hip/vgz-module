@@ -39,7 +39,6 @@
 .uk-section-primary * .btnVerein  { border-color: #FFF;}
 h3 a.uk-icon { float:right; display: inline; }
 .teamGrid { max-width:80%; float: right; }
-.teamGrid p:first-child { margin-top: 0;}
 
 .uk-flex-first\@m div .uk-background-cover {
     min-height:auto!important;
@@ -114,3 +113,39 @@ button.uk-modal-close-default.uk-icon.uk-close > svg>* { stroke-width: 4!importa
     .imgLogo.fixed { margin-left: -100px;top: 20px;}
     .innerGrid { padding:0 20px 20px}
 }
+
+/* Changes 19. August 2021 */
+#content {
+    min-height:calc(100vh - 270px);
+}
+.uk-table th {
+    padding: 5px 12px;
+    color: #465F0E;
+    text-transform: none;
+}
+.uk-button-default:active, .uk-button-default.uk-active {
+    background-color: #465F0E;
+    color: #FFF;
+}
+
+.uk-input, .uk-select, .uk-textarea, .uk-input:focus, .uk-select:focus, .uk-textarea:focus {
+    padding:10px 10px 10px 0;
+    background: transparent;
+    color: #465F0E;
+    border:none;
+    border-bottom: 1px solid #465F0E;
+}
+.uk-input::-webkit-input-placeholder, .uk-textarea::-webkit-input-placeholder {color: #A3B27D;}
+.uk-input:-moz-placeholder, .uk-textarea:-moz-placeholder {color: #A3B27D;opacity:  1;}
+.uk-input::-moz-placeholder, .uk-textarea::-moz-placeholder {color: #A3B27D;opacity:  1;}
+.uk-input:-ms-input-placeholder, .uk-textarea:-ms-input-placeholder {color: #A3B27D;}
+
+.uk-text-danger .uk-input {
+    border-bottom: 1px solid #C0222A;
+}
+.uk-text-danger .uk-input::-webkit-input-placeholder,.uk-text-danger  .uk-textarea::-webkit-input-placeholder {color: #e6865c;}
+.uk-text-danger .uk-input:-moz-placeholder,.uk-text-danger  .uk-textarea:-moz-placeholder {color: #e6865c;opacity:  1;}
+.uk-text-danger .uk-input::-moz-placeholder,.uk-text-danger  .uk-textarea::-moz-placeholder {color: #e6865c;opacity:  1;}
+.uk-text-danger .uk-input:-ms-input-placeholder,.uk-text-danger  .uk-textarea:-ms-input-placeholder {color: #e6865c;}
+
+.uk-checkbox { height: 30px; width: 30px; }
