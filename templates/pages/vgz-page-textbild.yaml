@@ -12,3 +12,5 @@ areas:
         id: vgz-module:components/vgzText
       linkList:
         id: mtk2:components/linkList
+      form:
+        id: form:components/form

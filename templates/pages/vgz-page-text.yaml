@@ -14,6 +14,8 @@ areas:
         id: mtk2:components/linkList
       vgzPerson:
         id: vgz-module:components/vgzPersonen
+      form:
+        id: form:components/form
   rigth:
     renderType: freemarker
     availableComponents:
@@ -23,3 +25,5 @@ areas:
         id: mtk2:components/linkList
       vgzPerson:
         id: vgz-module:components/vgzPersonen
+      form:
+        id: form:components/form

@@ -1,0 +1,12 @@
+form:
+  tabs: !override
+    tabMain:
+      fields: !override
+        formTitle:
+        formText:
+    tabSubmit:
+      fields: !override
+        errorTitle:
+        successMessage:
+        successTitle:
+    tabContactEmail:
