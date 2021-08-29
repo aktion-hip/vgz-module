@@ -12,13 +12,10 @@ git clone https://github.com/aktion-hip/vgz-module.git
 
 ## Features
 
-<!--
-Provide a list of the key features this module provides for content
-authors, or whoever the primary user is. For a component template,
-consider providing screenshots of the rendered component and the
-component dialog.
--->
-
+- Theme
+- Pages
+- Components: Text, People-Entry, Form (decorated Mangolia Form Module)
+- App: VGZ-Events
 
 ## Usage
 
@@ -44,5 +41,9 @@ https://docs.magnolia-cms.com
 
 ## License
 
+GNU General Public License (see [LICENSE](./LICENSE))
+
 
 ## Contributors
+
+Benno Luthiger
