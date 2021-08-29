@@ -1,1 +1,6 @@
 templateScript: /vgz-module/templates/form/formGroupFields.ftl
+areas:
+  fields:
+    availableComponents:
+      formCheckbox:
+        id: vgz-module:components/vgzFormField

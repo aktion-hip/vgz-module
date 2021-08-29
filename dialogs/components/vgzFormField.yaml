@@ -1,0 +1,47 @@
+label: vgzFormField.label
+form:
+  properties:
+    entries:
+      $type: jcrMultiField
+      label: vgzFormField.entries
+      required: true
+      field:
+        $type: compositeField
+        label: vgzFormField.entries.field
+        properties:
+          label:
+            $type: textField
+            label: vgzFormField.lbl
+            i18n: true
+            required: true
+          name:
+            $type: textField
+            label: vgzFormField.name
+            i18n: true
+            required: true
+    mandatory:
+      $type: checkBoxField
+      label: vgzFormField.mandatory
+      buttonLabel: vgzFormField.mandatory.lbl
+      i18n: true
+    type:
+      $type: radioButtonGroupField
+      label: vgzFormField.types
+      defaultValue: checkbox
+      datasource:
+        $type: optionListDatasource
+        options:
+          - name: checkbox
+            value: checkbox
+            label: Checkbox
+          - name: radio
+            value: radio
+            label: Radio
+  layout:
+    $type: tabbedLayout
+    tabs:
+      - name: tabMain
+        fields:
+            - name: entries
+            - name: mandatory
+            - name: type

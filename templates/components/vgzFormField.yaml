@@ -1,0 +1,5 @@
+title: vgzFormField
+renderType: freemarker
+templateScript: /vgz-module/templates/components/vgzFormField.ftl
+dialog: vgz-module:components/vgzFormField
+modelClass: info.magnolia.module.form.templates.components.FormFieldModel

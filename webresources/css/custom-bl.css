@@ -79,3 +79,25 @@ h4 {
         top: -33px;
     }
 }
+
+.vgzFormField {
+    padding-bottom: 5px;
+}
+
+.vgzFormField .uk-radio {
+    background-color: transparent;
+    border-color: #AFAA1B;
+}
+
+.vgzFormField .uk-radio:checked {
+    background-color: #465F0E;
+}
+.vgzFormField .uk-checkbox:checked:focus,
+.vgzFormField .uk-radio:checked:focus {
+    background-color: #668818;
+}
+
+.uk-text-danger textarea,
+.uk-text-danger input[type="text"] {
+    color: #e6865c;
+}

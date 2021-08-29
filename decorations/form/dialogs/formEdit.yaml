@@ -1,0 +1,11 @@
+form:
+  tabs:
+    tabMain:
+      fields:
+        errMessage:
+          type: String
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: vgzFormEdit.errMessage
+          rows: 1
+
+
