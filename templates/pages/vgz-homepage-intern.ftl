@@ -73,5 +73,14 @@
 
       [#include "../include/footer.ftl"]
     </<div>
+    <!-- Alarm intern -->
+    [#if content.alarm_text?has_content]
+      <div id="modalInfo" class="uk-flex-top uk-modal uk-flex uk-open" uk-modal="">
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <button class="uk-modal-close-default uk-icon uk-close" type="button" uk-close=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></button>
+          <p>${cmsfn.decode(content).alarm_text}</p>
+        </div>
+      </div>      
+    [/#if]
   </body>
 </html>

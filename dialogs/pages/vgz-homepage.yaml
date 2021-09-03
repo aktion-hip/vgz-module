@@ -38,6 +38,15 @@ form:
       $type: pageLinkField
       textInputAllowed: true
       label: home.page.footer.instagram
+    footer_text:
+      $type: richTextField
+      height: 250
+      lists: false
+      label: home.page.footer.footer_text
+    alarm_text:
+      $type: richTextField
+      height: 350
+      label: home.page.alarm_text
   layout:
     $type: tabbedLayout
     tabs:
@@ -61,3 +70,8 @@ form:
           - name: blackboard
           - name: facebook
           - name: instagram
+          - name: footer_text
+      alarm:
+        label: home.page.tab.alarm
+        fields:
+          - name: alarm_text

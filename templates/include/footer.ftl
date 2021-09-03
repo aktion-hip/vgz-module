@@ -25,15 +25,12 @@
                 </div>
             </div>
             <div class="uk-grid-item-match uk-flex-middle uk-width-1-2">
-                <div class="uk-panel uk-margin uk-text-right">          
-                Stadtoase<br>
-                Verein für Volksgesundheit Zürich<br>
-                Tobelhofstrasse 21<br>
-                8044 Zürich<br>
-                <a href="tel:+41445339909">+41 44 533 99 09</a><br>
-                <a href="mailto:info@stadtoase.ch">info@stadtoase.ch</a></span>
+                <div class="uk-panel uk-margin uk-text-right">
+                    [#if root.footer_text?has_content]
+                        ${cmsfn.decode(root).footer_text}
+                    [/#if]                
+                </div>
             </div>
-          </div>
         </div>
     </div>
 </div>

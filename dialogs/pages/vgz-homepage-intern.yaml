@@ -21,6 +21,10 @@ form:
     description:
       $type: textField
       label: home.page.description
+    alarm_text:
+      $type: richTextField
+      height: 350
+      label: home.page.alarm_text
   layout:
     $type: tabbedLayout
     tabs:
@@ -36,3 +40,7 @@ form:
         fields:
           - name: keywords
           - name: description
+      alarm:
+        label: home.page.tab.alarm
+        fields:
+          - name: alarm_text
