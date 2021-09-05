@@ -1,6 +1,11 @@
 label: vgzFormField.label
 form:
   properties:
+    controlName:
+      $type: textField
+      label: vgzFormField.name
+      i18n: true
+      required: true
     entries:
       $type: jcrMultiField
       label: vgzFormField.entries
@@ -42,6 +47,7 @@ form:
     tabs:
       - name: tabMain
         fields:
-            - name: entries
-            - name: mandatory
-            - name: type
+          - name: controlName
+          - name: entries
+          - name: mandatory
+          - name: type

@@ -1,6 +1,7 @@
 [#assign backButtonText=content.backButtonText!]
 [#assign cancelButtonText=content.cancelButtonText!]
 
+<p>* ${i18n.get('vgz.form.manadtory')}</p>
 <div class="button-wrapper uk-margin">
 
     [#if cancelButtonText?has_content]
