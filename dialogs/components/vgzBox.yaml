@@ -1,0 +1,12 @@
+label: vgzBox
+form:
+  properties:
+    text:
+      $type: richTextField
+      i18n: true
+      required: true
+    alarm:
+      $type: checkBoxField
+      label: vgzBox.alarm
+      buttonLabel: vgzBox.alarm.label
+      i18n: true
