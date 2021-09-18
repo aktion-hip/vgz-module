@@ -10,6 +10,8 @@ areas:
     availableComponents:
       vgzText:
         id: vgz-module:components/vgzText
+      vgzBox:
+        id: vgz-module:components/vgzBox
       linkList:
         id: mtk2:components/linkList
       form:

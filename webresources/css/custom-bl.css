@@ -5,6 +5,9 @@
     .left-container p:first-child {
         margin-top: 51px;
     }
+    .left-container .vgzBox p:first-child {
+        margin-top: 0;
+    }
     .left-container .text-section {
         width: 80%;
     }
@@ -100,4 +103,15 @@ h4 {
 .uk-text-danger textarea,
 .uk-text-danger input[type="text"] {
     color: #e6865c;
+}
+
+.vgzBox {
+    color: #FAF8E7;
+    background-color: #465F0E;
+    padding: 1em 1em 0.1em 1em;
+    margin-bottom: 1em;
+}
+
+.vgzBox.vgzAlarm {
+    background-color: #F0430A;
 }

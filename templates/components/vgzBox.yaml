@@ -1,0 +1,4 @@
+title: vgzBox
+renderType: freemarker
+templateScript: /vgz-module/templates/components/vgzBox.ftl
+dialog: vgz-module:components/vgzBox
