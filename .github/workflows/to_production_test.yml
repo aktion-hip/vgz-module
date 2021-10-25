@@ -2,7 +2,7 @@ name: Copy ligth module into production (test)
 on:
   push:
     branches:
-      - production
+      - production_tst
 jobs:
   copy_to_target:
     name: Copy ligth module
