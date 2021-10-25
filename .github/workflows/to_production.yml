@@ -1,11 +1,11 @@
-name: Copy ligth module into production (test)
+name: Copy light module into production
 on:
   push:
     branches:
-      - production_tst
+      - production
 jobs:
   copy_to_target:
-    name: Copy ligth module
+    name: Copy VGZ light module
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -16,5 +16,6 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
-        target: "/vgz/light-modules/vgz-module"
+        port: ${{ secrets.PORT }}
+        target: "/home/vgz/vgzmgnl/webapps/modules/vgz-module"
         source: "*"
