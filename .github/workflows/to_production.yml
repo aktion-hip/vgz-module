@@ -1,0 +1,20 @@
+name: Copy light module into production
+on:
+  push:
+    branches:
+      - production
+jobs:
+  copy_to_target:
+    name: Copy VGZ light module
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: copy file via ssh key
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        target: "/home/vgz/vgzmgnl/webapps/modules/vgz-module"
+        source: "*"
