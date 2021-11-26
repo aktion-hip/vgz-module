@@ -32,7 +32,7 @@ form:
     $type: tabbedLayout
     tabs:
       main:
-        label: vgz-homepage
+        label: vgz-page-textbild
         fields:
           - name: title
           - name: navigationTitle
