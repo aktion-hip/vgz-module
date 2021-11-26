@@ -25,7 +25,7 @@
                   [#if cmsfn.metaData(child, "mgnl:template") != "vgz-module:pages/vgz-homepage-intern"]
                     [#if (content.@path == child.@path) || isAncestorOf(child, content) ]
                       <li class="uk-active">
-                        <a href="${cmsfn.link(child)}">${child.title!}</a>
+                        <a href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a>
                       </li>
                       [#if hasChildren(child)]
                         <li class="uk-active uk-parent vgz-mobile-parent">
@@ -35,7 +35,7 @@
                       [/#if]
                     [#else]
                       <li>
-                        <a href="${cmsfn.link(child)}">${child.title!}</a>
+                        <a href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a>
                       </li>
                       [#if hasChildren(child)]
                         <li class="uk-parent vgz-mobile-parent">
@@ -73,12 +73,12 @@
               [#if cmsfn.metaData(child, "mgnl:template") != "vgz-module:pages/vgz-homepage-intern"]
                 [#if (content.@path == child.@path) || isAncestorOf(child, content) ]
                   <li class="uk-parent uk-active">
-                    <a href="${cmsfn.link(child)}">${child.title!}</a>
+                    <a href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a>
                     [@subNavigation child /]
                   </li>
                 [#else]
                   <li>
-                    <a href="${cmsfn.link(child)}">${child.title!}</a>
+                    <a href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a>
                     [@subNavigation child /]
                   </li>
                 [/#if]

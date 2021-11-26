@@ -10,12 +10,22 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: copy file via ssh key
+    - name: copy file via ssh key (author)
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.PORT }}
-        target: "/home/vgz/vgzmgnl/webapps/modules/vgz-module"
+        target: "/home/vgz/vgzmgnl/webapps/magnoliaAuthor/modules/vgz-module"
+        source: "*"
+
+    - name: copy file via ssh key (publish)
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.PORT }}
+        target: "/home/vgz/vgzmgnl/webapps/magnoliaPublic/modules/vgz-module"
         source: "*"
