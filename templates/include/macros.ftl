@@ -8,7 +8,9 @@
         <div>
           <ul class="uk-nav uk-navbar-dropdown-nav">
             [#list children as child ]
-              <li><a href="${cmsfn.link(child)}">${child.title!}</a></li>
+              [#if !child.hideInNav]
+                <li><a href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a></li>
+              [/#if]
             [/#list]	  
           </ul>
         </div>
@@ -25,35 +27,41 @@
     <!-- Sub-Navigation Start -->
     <ul class="uk-nav-sub">
       [#list children as child ]
-        <li><a href="${cmsfn.link(child)}">${child.title!}</a></li>
+        [#if !child.hideInNav]
+          <li><a href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a></li>
+        [/#if]
       [/#list]
     </ul>
     <!-- Sub-Navigation End -->
   [/#if]
 [/#macro]
 
-[#-- displays the navigation to a page's children (computer or mobile) --]
+[#-- displays the navigation to a page's children (desktop or mobile) --]
 [#macro childNavigation parent isLeft ]
   [#assign children = cmsfn.children(parent, "mgnl:page") ]
   [#if children?size > 0]
     [#if isLeft]
-      <!-- computer (will be hidden on mobile) -->
+      <!-- desktop (will be hidden on mobile) -->
       <div class="vgz-child_nav">
         <div class="btnRow btnRowLeft uk-visible@m">
           <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid" uk-grid="">
             [#list children as child ]
-              <div class="el-item"> <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.title!}</a> </div>
+              [#if !child.hideInNav]
+                <div class="el-item"> <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a> </div>
+              [/#if]
             [/#list]	  
           </div>
         </div>
       </div>
     [#else]
-      <!-- mobile (will be hidden on computer) -->
+      <!-- mobile (will be hidden on desktop) -->
       <div class="vgz-child_nav-mobile">
         <div class="btnRow btnRowRight">
           <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid" uk-grid="">
             [#list children as child ]
-              <div class="el-item"> <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.title!}</a> </div>
+              [#if !child.hideInNav]
+                <div class="el-item"> <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a> </div>
+              [/#if]
             [/#list]
           </div>
         </div>        
@@ -72,9 +80,11 @@
         <div class="btnRow btnRowRight">
           <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">
             [#list children as child ]
-              <div class="el-item uk-grid-margin uk-first-column">
-                <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.title!}</a>
-              </div>                      
+              [#if !child.hideInNav]
+                <div class="el-item uk-grid-margin uk-first-column">
+                  <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a>
+                </div>                      
+              [/#if]
             [/#list]
           </div>
         </div>
@@ -85,9 +95,11 @@
         <div class="btnRow btnRowRight">
           <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">
             [#list children as child ]
-              <div class="el-item uk-grid-margin uk-first-column">
-                <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.title!}</a>
-              </div>                      
+              [#if !child.hideInNav]
+                <div class="el-item uk-grid-margin uk-first-column">
+                  <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a>
+                </div>                      
+              [/#if]
             [/#list]
           </div>
         </div>
