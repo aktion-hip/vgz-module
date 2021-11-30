@@ -22,6 +22,12 @@ form:
         $type: damLinkField
         showOptions: true
         label: home.page.images.remark
+    imagesInterval:
+      $type: textField
+      type: java.lang.Integer
+      converterClass: com.vaadin.data.converter.StringToIntegerConverter
+      label: home.page.images.interval
+      defaultValue: 10
     keywords:
       $type: textField
       label: home.page.keywords
@@ -38,9 +44,11 @@ form:
           - name: navigationTitle
           - name: windowTitle
           - name: hideInNav
+          - name: imagesInterval
           - name: images
       meta:
         label: home.page.tab.meta
         fields:
           - name: keywords
           - name: description
+
