@@ -37,7 +37,9 @@
                       <div class="uk-first-column">
                         
                         <!-- Slideshow -->
-                        <div uk-slideshow="ratio: false; animation: fade; autoplay: 1; pauseOnHover: false;" class="uk-margin uk-text-left@l uk-slideshow">
+                        [#assign interval = (content.imagesInterval!0) * 1000]
+                        [#assign autoplayInterval = (interval == 0)?then("", "autoplay-interval: " + interval?c + ";")]
+                        <div uk-slideshow="ratio: false; animation: fade; pauseOnHover: false; autoplay: 1; ${autoplayInterval}" class="uk-margin uk-text-left@l uk-slideshow">
                           <div class="uk-position-relative">
                             <ul class="uk-slideshow-items" uk-height-viewport="offset-top: true; minHeight: 600;">
                               [#list content.images as slideImg ]
