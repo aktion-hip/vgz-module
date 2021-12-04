@@ -34,6 +34,11 @@ form:
     description:
       $type: textField
       label: home.page.description
+    teaser:
+      $type: richTextField
+      label: vgz.page.teaser
+      lists: false
+      height: 350
   layout:
     $type: tabbedLayout
     tabs:
@@ -46,6 +51,10 @@ form:
           - name: hideInNav
           - name: imagesInterval
           - name: images
+      teaser:
+        label: vgz.page.tab.teaser
+        fields:
+          - name: teaser
       meta:
         label: home.page.tab.meta
         fields:

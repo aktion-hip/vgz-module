@@ -34,7 +34,7 @@
             <div class="uk-width-1-1">
               <div class="tm-grid-expand uk-child-width-1-1 uk-grid-margin uk-grid uk-grid-stack" uk-grid="">
                 <div class="uk-first-column">
-                  <div class="left-container">
+                  <div class="left-container vgz-content">
 
                     [@cms.area name="left"/]
                   
@@ -55,7 +55,12 @@
             <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
               <div class="uk-width-2-3@m">
                 <h1>${content.title!}</h1>
-                [@cms.area name="rigth"/]
+                [#if content.teaser?hasContent]
+                  <div class="vgz-teaser">${cmsfn.decode(content).teaser!}</div>
+                [/#if]
+                <div class="vgz-content">
+                  [@cms.area name="rigth"/]                  
+                </div>
               </div>
               <div class="uk-width-1-3@m"></div>
             </div>
