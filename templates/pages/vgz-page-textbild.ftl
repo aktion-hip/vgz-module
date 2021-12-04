@@ -21,9 +21,6 @@
         [#assign root = cmsfn.root(content, "mgnl:page") ]
         [#include "../include/navigation.ftl"]
 
-        <!-- Navigation over Image left -->
-        [@childNavigation content true /]
-
         <!-- Content - 2 Cols -->
         <div id="content" class="uk-section-muted uk-section uk-padding-remove-vertical">
           <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
@@ -50,7 +47,7 @@
                         </div>
 
                         <!-- Navigation under Logo right // Placed here for Mobile View -->
-                        [@childNavigation content false /]
+                        [@childNavigation content /]
 
                       </div>
                     </div>

@@ -37,36 +37,18 @@
 [/#macro]
 
 [#-- displays the navigation to a page's children (desktop or mobile) --]
-[#macro childNavigation parent isLeft ]
+[#macro childNavigation parent]
   [#assign children = cmsfn.children(parent, "mgnl:page") ]
   [#if children?size > 0]
-    [#if isLeft]
-      <!-- desktop (will be hidden on mobile) -->
-      <div class="vgz-child_nav">
-        <div class="btnRow btnRowLeft uk-visible@m">
-          <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid" uk-grid="">
-            [#list children as child ]
-              [#if !child.hideInNav]
-                <div class="el-item"> <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a> </div>
-              [/#if]
-            [/#list]	  
-          </div>
-        </div>
+    <div id="subNav" class="btnRow btnRowRight">
+      <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">
+        [#list children as child ]
+          [#if !child.hideInNav]
+            <div class="el-item uk-first-column"> <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a> </div>
+          [/#if]
+        [/#list]
       </div>
-    [#else]
-      <!-- mobile (will be hidden on desktop) -->
-      <div class="vgz-child_nav-mobile">
-        <div class="btnRow btnRowRight">
-          <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid" uk-grid="">
-            [#list children as child ]
-              [#if !child.hideInNav]
-                <div class="el-item"> <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a> </div>
-              [/#if]
-            [/#list]
-          </div>
-        </div>        
-      </div>
-    [/#if]
+    </div>
   [/#if]
 [/#macro]
 
