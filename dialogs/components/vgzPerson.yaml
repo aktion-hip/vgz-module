@@ -18,4 +18,3 @@ form:
       label: vgzPerson.mail
       $type: textField
       i18n: true
-      required: true
