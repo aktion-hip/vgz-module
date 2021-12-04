@@ -67,7 +67,12 @@
                   <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
                     <div class="uk-width-2-3@m"> 
                       <h1>${content.title!}</h1>
-                      [@cms.area name="content"/]                                      
+                      [#if content.teaser?hasContent]
+                        <div class="vgz-teaser">${cmsfn.decode(content).teaser!}</div>
+                      [/#if]
+                      <div class="vgz-content">
+                        [@cms.area name="content"/]                                      
+                      </div>
                     </div>
                     <div class="uk-width-1-3@m"></div>
                   </div>
