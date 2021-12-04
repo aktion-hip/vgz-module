@@ -115,3 +115,13 @@ h4 {
 .vgzBox.vgzAlarm {
     background-color: #F0430A;
 }
+
+.vgz-teaser {
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+.vgz-content {
+    font-size: 0.8rem;
+    line-height: 1;
+}
