@@ -81,6 +81,15 @@ h4 {
         position: relative;
         top: -33px;
     }
+    .uk-section-small {
+        padding-bottom: 0;
+    }
+    .uk-container {
+        padding-left: 30px;
+    }
+    .vgz-content p:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .vgzFormField {
@@ -125,3 +134,21 @@ h4 {
     font-size: 0.8rem;
     line-height: 1;
 }
+
+.intern .uk-navbar-toggle,
+#tm-mobile > .intern .uk-close {
+    color: #FFFFFF;
+    background-color: #4D680F;
+}
+.intern .uk-navbar-toggle:hover,
+#tm-mobile > .intern .uk-close:hover {
+    color: #9C9E0F;
+}
+
+.btnRowRight {
+    z-index: 10;
+}
+/* overwrites custom.css */
+.btnRow.btnRowRight {position: fixed;top:380px;right:0px}
+.uk-grid-small > .uk-grid-margin.el-item {margin-top: 10px;}
+

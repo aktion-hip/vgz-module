@@ -1,5 +1,6 @@
 [#assign siteRoot = cmsfn.root(content, "mgnl:page")!content ]
 [#assign root = isInIntern(content)?then(getIntern(content, siteRoot), siteRoot) ]
+[#assign clsIntern = isInIntern(content)?then("intern", "")]
 <!-- header mobile -->
   <div class="tm-header-mobile uk-hidden@m">
     <div class="uk-sticky uk-sticky-fixed" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
@@ -14,7 +15,7 @@
       </div>
     </div>
     <div id="tm-mobile" class="uk-modal-full uk-modal" uk-modal="">
-      <div class="uk-modal-dialog uk-modal-body uk-height-viewport">
+      <div class="uk-modal-dialog uk-modal-body uk-height-viewport ${clsIntern}">
         <button class="uk-modal-close-full uk-icon uk-close" type="button" uk-close=""></button>
         <div class="uk-child-width-1-1 uk-grid uk-grid-stack" uk-grid="">
           <div>
