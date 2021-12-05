@@ -17,9 +17,10 @@
     [/#list]
   </head>
   <body class="vgz-page-textbild ${cmsfn.language()}">
-      <div class="tm-page">
-        [#assign root = cmsfn.root(content, "mgnl:page") ]
-        [#include "../include/navigation.ftl"]
+    [#assign clsIntern = isInIntern(content)?then("intern", "")]
+    <div class="tm-page ${clsIntern}">
+      [#assign root = cmsfn.root(content, "mgnl:page") ]
+      [#include "../include/navigation.ftl"]
 
         <!-- Content - 2 Cols -->
         <div id="content" class="uk-section-muted uk-section uk-padding-remove-vertical">
