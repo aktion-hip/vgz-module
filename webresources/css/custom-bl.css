@@ -152,3 +152,14 @@ h4 {
 .btnRow.btnRowRight {position: fixed;top:380px;right:0px}
 .uk-grid-small > .uk-grid-margin.el-item {margin-top: 10px;}
 
+.vgz-icon {
+    text-align: right;
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+}
+.vgz-icon-temp {
+    background-image: url(../img/icons/icon-temp.svg);
+}
+.vgz-icon-wetter {
+    background-image: url(../img/icons/icon-wetter.svg);
+}
