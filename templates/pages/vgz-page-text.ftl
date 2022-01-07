@@ -21,6 +21,7 @@
       <div class="tm-page ${clsIntern}">
         [#assign root = cmsfn.root(content, "mgnl:page") ]
         [#include "../include/navigation.ftl"]
+        [@vgzLogo false /]
         [@childNavText content true /]
 
   <!-- Content - 2 Cols -->

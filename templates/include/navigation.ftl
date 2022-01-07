@@ -107,7 +107,3 @@
   </div>
 </div> 	 
 
-<!-- Logo -->
-<div class="imgLogo">
-  <a class="el-link" href="${cmsfn.link(siteRoot)}"><img src="${ctx.contextPath}/.resources/vgz-module/webresources/img/logo.png" class="el-image" alt="Stadt Oase Zürich" /></a> 
-</div>

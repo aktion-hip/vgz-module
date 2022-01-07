@@ -21,6 +21,7 @@
   <body class="vgz-homepage ${cmsfn.language()}">
     <div class="tm-page intern">
       [#include "../include/navigation.ftl"]
+      [@vgzLogo false /]
 
   <!-- Navigation over Image left -->
   <div class="btnRow btnRowLeft uk-visible@m">

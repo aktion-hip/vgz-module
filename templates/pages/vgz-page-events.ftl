@@ -22,6 +22,7 @@
       <div class="tm-page ${clsIntern}">
         [#assign root = cmsfn.root(content, "mgnl:page") ]
         [#include "../include/navigation.ftl"]
+        [@vgzLogo false /]
 
   <!-- Content - 2 Cols -->
   [#assign events = getEvents() ]
