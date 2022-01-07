@@ -1,0 +1,54 @@
+label: vgz-module.pages.vgz-page-text.label
+form:
+  properties:
+    title:
+      $type: textField
+      label: home.page.title
+      i18n: true
+      required: true
+    navigationTitle:
+      $type: textField
+      label: home.page.navigation.title
+      i18n: true
+    windowTitle:
+      $type: textField
+      label: home.page.window.title
+      i18n: true
+    keywords:
+      $type: textField
+      label: home.page.keywords
+    description:
+      $type: textField
+      label: home.page.description
+    svg:
+      $type: codeField
+      label: imgmap.page.svg
+      language: html
+      required: true
+    titles:
+      $type: jcrMultiValueField
+      label: imgmap.page.link
+      field:
+        $type: textField
+        label: ""
+    hideInNav:
+      $type: checkBoxField        
+  layout:
+    $type: tabbedLayout
+    tabs:
+      main:
+        label: vgz-page-imgmap
+        fields:
+          - name: title
+          - name: navigationTitle
+          - name: windowTitle
+      imgmap:
+        label: vgz.page.tab.imgmap
+        fields:
+          - name: svg
+          - name: titles
+      meta:
+        label: home.page.tab.meta
+        fields:
+          - name: keywords
+          - name: description

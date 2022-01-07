@@ -46,6 +46,12 @@ h4 {
 .vk-event_details.active {
     display: block;
 }
+.imgmap-titles {
+    position: absolute;
+    right: 0;
+    top: 21em;
+    width: 13em;
+}
 
 @media screen and (min-width:960px) {
     .left-container {

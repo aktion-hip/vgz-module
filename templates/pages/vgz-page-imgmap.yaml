@@ -1,0 +1,6 @@
+title: vgz-page-imgmap
+templateScript: /vgz-module/templates/pages/vgz-page-imgmap.ftl
+renderType: freemarker
+dialog: vgz-module:pages/vgz-page-imgmap
+visible: true
+
