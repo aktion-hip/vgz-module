@@ -137,8 +137,11 @@ h4 {
     line-height: 1.2;
 }
 .vgz-content {
+    font-size: inherit;
+/*    
     font-size: 0.8rem;
     line-height: 1;
+*>
 }
 
 .intern .uk-navbar-toggle,

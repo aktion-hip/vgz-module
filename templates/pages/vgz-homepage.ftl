@@ -21,6 +21,7 @@
   <body class="vgz-homepage ${cmsfn.language()}">
     <div class="tm-page">
       [#include "../include/navigation.ftl"]
+      [@vgzLogo true /]
 
       <!-- Content - Screen-Height -->
       <div id="content" class="uk-section-muted home">
