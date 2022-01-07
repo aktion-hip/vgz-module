@@ -21,6 +21,7 @@
     <div class="tm-page ${clsIntern}">
       [#assign root = cmsfn.root(content, "mgnl:page") ]
       [#include "../include/navigation.ftl"]
+      [@vgzLogo false /]
 
         <!-- Content - 2 Cols -->
         <div id="content" class="uk-section-muted uk-section uk-padding-remove-vertical">
@@ -29,7 +30,7 @@
 
               <!-- Content - Col Left -->
               <div class="uk-section-muted">
-                <div style="background-image: url(images/sauna.jpg); height: calc(-60px + 100vh);" class="uk-background-norepeat uk-background-cover uk-background-center-center uk-flex" uk-height-viewport="offset-top: true;">
+                <div style="height: calc(-60px + 100vh);" class="uk-background-norepeat uk-background-cover uk-background-center-center uk-flex" uk-height-viewport="offset-top: true;">
                   <div class="uk-width-1-1">
                     <div class="tm-grid-expand uk-child-width-1-1 uk-grid-margin uk-grid uk-grid-stack" uk-grid="">
                       <div class="uk-first-column">
@@ -41,7 +42,7 @@
                           <div class="uk-position-relative">
                             <ul class="uk-slideshow-items" uk-height-viewport="offset-top: true; minHeight: 600;">
                               [#list content.images as slideImg ]
-                                <li class="el-item uk-transition"><img class="el-image uk-cover" alt="" uk-img="target: !.uk-slideshow-items" src="${damfn.getAssetLink(slideImg)}"></li>
+                                <li class="el-item uk-transition"><img class="el-image" alt="" uk-img="target: !.uk-slideshow-items" src="${damfn.getAssetLink(slideImg)}"></li>
                               [/#list]
                             </ul>
                           </div>
