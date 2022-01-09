@@ -25,6 +25,11 @@ form:
       label: imgmap.page.svg
       language: html
       required: true
+    styles:
+      $type: codeField
+      label: imgmap.page.styles
+      language: css
+      height: 200
     titles:
       $type: jcrMultiValueField
       label: imgmap.page.link
@@ -45,8 +50,9 @@ form:
       imgmap:
         label: vgz.page.tab.imgmap
         fields:
-          - name: svg
           - name: titles
+          - name: svg
+          - name: styles
       meta:
         label: home.page.tab.meta
         fields:

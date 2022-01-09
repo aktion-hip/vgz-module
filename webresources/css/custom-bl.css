@@ -15,6 +15,9 @@
 h4 {
     font-style: italic;
 }
+em {
+    color: inherit;
+}
 
 .vk-event {
     display: flex;
@@ -120,11 +123,24 @@ h4 {
     color: #e6865c;
 }
 
+.vgz-teaser a,
+.vgz-content a {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+.vgz-teaser a:hover,
+.vgz-content a:hover {
+    text-decoration-style: solid;
+}
+
 .vgzBox {
     color: #FAF8E7;
     background-color: #465F0E;
     padding: 1em 1em 0.1em 1em;
     margin-bottom: 1em;
+}
+.vgzBox a {
+    color: #FAF8E7;
 }
 
 .vgzBox.vgzAlarm {
