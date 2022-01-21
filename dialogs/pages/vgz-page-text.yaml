@@ -25,6 +25,22 @@ form:
       label: vgz.page.teaser
       lists: false
       height: 350
+    refPages:
+      $type: jcrMultiField
+      label: vgz.page.references.linkto
+      field:
+        $type: compositeField
+        label: vgz.page.references.lbl
+        properties:
+          link:
+            $type: pageLinkField
+            showOptions: true
+            label: vgz.page.referenced.remark
+            required: true
+          label:
+            $type: textField
+            label: vgz.page.referenced.label
+            required: true  
   layout:
     $type: tabbedLayout
     tabs:
@@ -39,6 +55,10 @@ form:
         label: vgz.page.tab.teaser
         fields:
           - name: teaser
+      references:
+        label: vgz.page.tab.linked
+        fields:
+          - name: refPages     
       meta:
         label: home.page.tab.meta
         fields:

@@ -21,6 +21,20 @@
       <div class="tm-page ${clsIntern}">
         [#assign root = cmsfn.root(content, "mgnl:page") ]
         [#include "../include/navigation.ftl"]
+
+        <!-- Navigation over Image left -->
+        [#if content.refPages?hasContent]
+          <div class="btnRow btnRowLeft uk-visible@m">
+            <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">
+              [#list cmsfn.children(content.refPages) as reference ]
+                <div class="el-item ${(reference?counter > 1)?then('uk-grid-margin','')} uk-first-column">
+                  <a class="el-content uk-button uk-button-default" href="${cmsfn.link(cmsfn.contentById(reference.link))}">${reference.label}</a>
+                </div>
+              [/#list]
+            </div>
+          </div>
+        [/#if]
+
         [@vgzLogo false /]
         [@childNavText content true /]
 
@@ -35,6 +49,10 @@
             <div class="uk-width-1-1">
               <div class="tm-grid-expand uk-child-width-1-1 uk-grid-margin uk-grid uk-grid-stack" uk-grid="">
                 <div class="uk-first-column">
+                  <h1>${content.title!}</h1>
+                  [#if content.teaser?hasContent]
+                    <div class="vgz-teaser">${cmsfn.decode(content).teaser!}</div>
+                  [/#if]                
                   <div class="left-container vgz-content">
 
                     [@cms.area name="left"/]
@@ -55,11 +73,7 @@
           <div class="uk-container">
             <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
               <div class="uk-width-2-3@m">
-                <h1>${content.title!}</h1>
-                [#if content.teaser?hasContent]
-                  <div class="vgz-teaser">${cmsfn.decode(content).teaser!}</div>
-                [/#if]
-                <div class="vgz-content">
+                <div class="right-container vgz-content">
                   [@cms.area name="rigth"/]                  
                 </div>
               </div>
