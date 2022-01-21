@@ -1,8 +1,12 @@
 @media (min-width:960px) {
-    .left-container h2:first-child, 
-    .left-container h3:first-child, 
-    .left-container h4:first-child, 
-    .left-container p:first-child {
+    .uk-first-column > h1 {
+        margin-left: calc(20%);
+    }    
+    .right-container h2:first-child, 
+    .right-container h3:first-child, 
+    .right-container h4:first-child, 
+    .right-container > p:first-child,
+    .right-container .text-section {
         margin-top: 51px;
     }
     .left-container .vgzBox p:first-child {
@@ -126,10 +130,6 @@ em {
 .vgz-teaser a,
 .vgz-content a {
     text-decoration: underline;
-    text-decoration-style: dotted;
-}
-.vgz-teaser a:hover,
-.vgz-content a:hover {
     text-decoration-style: solid;
 }
 
