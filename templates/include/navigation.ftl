@@ -59,6 +59,20 @@
                 [/#if]
               </ul>
               <!-- Mobile-Navigation End -->
+
+              <!-- Page References Start -->
+              [#if content.refPages?hasContent]
+                <div class="btnRow btnRowLeft">
+                  <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid" uk-grid>
+                    [#list cmsfn.children(content.refPages) as reference ]
+                      <div class="el-item ${(reference?counter > 1)?then('uk-grid-margin','')} uk-first-column">
+                        <a class="el-content uk-button uk-button-default" href="${cmsfn.link(cmsfn.contentById(reference.link))}">${reference.label}</a>
+                      </div>
+                    [/#list]
+                  </div>
+                </div>
+              [/#if]
+              <!-- Page References End -->
             </div>
           </div>
         </div>
