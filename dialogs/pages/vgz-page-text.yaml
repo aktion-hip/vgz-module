@@ -37,10 +37,15 @@ form:
             showOptions: true
             label: vgz.page.referenced.remark
             required: true
+            textInputAllowed: true
           label:
             $type: textField
             label: vgz.page.referenced.label
-            required: true  
+            required: true
+    titlePos:
+      $type: checkBoxField
+      label: vgz.page.title.pos
+      buttonLabel: vgz.page.title.pos.right
   layout:
     $type: tabbedLayout
     tabs:
@@ -50,6 +55,7 @@ form:
           - name: title
           - name: navigationTitle
           - name: windowTitle
+          - name: titlePos
           - name: hideInNav
       teaser:
         label: vgz.page.tab.teaser

@@ -43,7 +43,7 @@
             <div class="uk-width-1-2@m">
 
               <!-- Content - Col Left -->
-              <div class="uk-section-muted">
+              <div class="uk-section-muted left-container">
                 <div style="height: calc(-60px + 100vh);" class="uk-background-norepeat uk-background-cover uk-background-center-center uk-flex" uk-height-viewport="offset-top: true;">
                   <div class="uk-width-1-1">
                     <div class="tm-grid-expand uk-child-width-1-1 uk-grid-margin uk-grid uk-grid-stack" uk-grid="">
@@ -75,7 +75,7 @@
             <div class="uk-grid-item-match uk-width-1-2@m">
 
               <!-- Content - Col Right -->
-              <div class="uk-section-muted uk-section uk-section-small innerSection">
+              <div class="uk-section-muted uk-section uk-section-small innerSection right-container">
                 <div class="uk-container">
                   <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
                     <div class="uk-width-2-3@m"> 

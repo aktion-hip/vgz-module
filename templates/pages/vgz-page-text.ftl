@@ -44,16 +44,20 @@
 
       <div class="uk-width-1-2@m uk-flex-first@m">
         <!-- Content - Col Left -->
-        <div class="uk-section-muted">
+        <div class="uk-section-muted left-container">
           <div style="background-image: none; height: calc(-60px + 100vh);" class="uk-background-norepeat uk-background-cover uk-background-center-center uk-flex" uk-height-viewport="offset-top: true;">
             <div class="uk-width-1-1">
               <div class="tm-grid-expand uk-child-width-1-1 uk-grid-margin uk-grid uk-grid-stack" uk-grid="">
                 <div class="uk-first-column">
-                  <h1>${content.title!}</h1>
-                  [#if content.teaser?hasContent]
-                    <div class="vgz-teaser">${cmsfn.decode(content).teaser!}</div>
-                  [/#if]                
-                  <div class="left-container vgz-content">
+                  [#if !(content.titlePos!false)]                    
+                    <h1>${content.title!}</h1>
+                    [#if content.teaser?hasContent]
+                      <div class="vgz-teaser">${cmsfn.decode(content).teaser!}</div>
+                    [/#if]
+                  [#else]
+                    <div class="vgz-title-placeholder"></div>
+                  [/#if]
+                  <div class="vgz-content">
 
                     [@cms.area name="left"/]
                   
@@ -69,11 +73,20 @@
 
       <div class="uk-grid-item-match uk-width-1-2@m uk-flex-first">
         <!-- Content - Col Right -->
-        <div class="uk-section-muted uk-section uk-section-small innerSection">
+        <div class="uk-section-muted uk-section uk-section-small innerSection right-container">
           <div class="uk-container">
             <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
               <div class="uk-width-2-3@m">
-                <div class="right-container vgz-content">
+                [#if content.titlePos!false]
+                  <h1>${content.title!}</h1>
+                  [#if content.teaser?hasContent]
+                    <div class="vgz-teaser">${cmsfn.decode(content).teaser!}</div>
+                  [/#if]
+                [#else]
+                  <div class="vgz-title-placeholder"></div>
+                [/#if]
+
+                <div class="vgz-content">
                   [@cms.area name="rigth"/]                  
                 </div>
               </div>
