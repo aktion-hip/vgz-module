@@ -30,6 +30,11 @@ form:
       label: imgmap.page.styles
       language: css
       height: 200
+    scripts:
+      $type: codeField
+      label: imgmap.page.scripts
+      language: javascript
+      height: 200
     titles:
       $type: jcrMultiValueField
       label: imgmap.page.link
@@ -53,6 +58,7 @@ form:
           - name: titles
           - name: svg
           - name: styles
+          - name: scripts
       meta:
         label: home.page.tab.meta
         fields:

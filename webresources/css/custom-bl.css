@@ -189,3 +189,7 @@ em {
 .vgz-icon-wetter {
     background-image: url(../img/icons/icon-wetter.svg);
 }
+.vgz-img-areal {
+    background-image: url(../img/icons/areal.png);
+    background-repeat: no-repeat;
+}
