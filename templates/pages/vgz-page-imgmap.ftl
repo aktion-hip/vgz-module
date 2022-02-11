@@ -19,14 +19,13 @@
         ${cmsfn.decode(content).styles}
       </style>
     [/#if]
-    <style>
-    </style>
   </head>
   <body class="vgz-page-imgmap ${cmsfn.language()}">
       <div class="tm-page">
         [#assign root = cmsfn.root(content, "mgnl:page") ]
         [#include "../include/navigation.ftl"]
         [@childNavText content false /]
+        [@vgzLogo false /]
 
         <!-- include titles -->
         [#if content.titles?size > 0]
@@ -43,43 +42,18 @@
           </div>
         [/#if]
         <!-- include svg -->
-        [#if content.svg?has_content]
-            ${cmsfn.decode(content).svg}
-        [/#if]
+        <div class="vgz-img-areal">
+          [#if content.svg?has_content]
+              <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+              ${cmsfn.decode(content).svg}
+          [/#if]
+        </div>
 
-        <script>
-            function areaOn(el) {
-                toggle(el, "fill: #EFAD8A");
-            }
-            function areaOff(el) {
-                toggle(el, "stroke: none");
-            }
-            function toggle(el, style) {                
-                const area = document.getElementById(el.dataset.vgzId);
-                if (area) {
-                    const polygons = [...area.getElementsByTagName("polygon")];
-                    polygons.forEach(el => {
-                        el.setAttribute("style", style);
-                    });
-                }
-            }
-            function labelOn(el) {
-                toggleLabel(el, true);
-            }
-            function labelOff(el) {
-                toggleLabel(el, false);
-            }
-            function toggleLabel(el, setAttr) {
-                const label = document.querySelector('[data-vgz-id="' + el.id + '"]');
-                if (label) {
-                    if (setAttr) {
-                        label.getElementsByTagName("a")[0].classList.add("vgz-lbl-on"); 
-                    } else {
-                        label.getElementsByTagName("a")[0].classList.remove("vgz-lbl-on"); 
-                    }
-                }
-            }
-        </script>        
+        [#if content.scripts?has_content]
+          <script>
+            ${cmsfn.decode(content).scripts}
+          </script>
+        [/#if]
 
         [#include "../include/footer.ftl"]
       </<div>
