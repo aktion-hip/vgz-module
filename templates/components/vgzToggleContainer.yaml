@@ -1,0 +1,13 @@
+title: vgzToggleContainer
+renderType: freemarker
+templateScript: /vgz-module/templates/components/vgzToggleContainer.ftl
+dialog: vgz-module:components/vgzToggleContainer
+
+areas:
+  toggle:
+    renderType: freemarker
+    availableComponents:
+      vgzText:
+        id: vgz-module:components/vgzText
+      form:
+        id: form:components/form

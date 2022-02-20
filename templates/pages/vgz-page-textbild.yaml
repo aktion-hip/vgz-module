@@ -16,3 +16,5 @@ areas:
         id: mtk2:components/linkList
       form:
         id: form:components/form
+      vgzToggleContainer:
+        id: vgz-module:components/vgzToggleContainer
