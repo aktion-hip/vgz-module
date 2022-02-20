@@ -1,0 +1,13 @@
+form:
+  properties:
+    containerTitle:
+      $type: textField
+      label: vgzToggleContainer.title
+      required: true
+      i18n: true
+  layout:
+    $type: tabbedLayout
+    tabs:
+      - name: tabText
+        fields:
+          - name: containerTitle

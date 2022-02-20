@@ -18,6 +18,8 @@ areas:
         id: vgz-module:components/vgzPersonen
       form:
         id: form:components/form
+      vgzToggleContainer:
+        id: vgz-module:components/vgzToggleContainer
   rigth:
     renderType: freemarker
     availableComponents:
@@ -31,3 +33,5 @@ areas:
         id: vgz-module:components/vgzPersonen
       form:
         id: form:components/form
+      vgzToggleContainer:
+        id: vgz-module:components/vgzToggleContainer
