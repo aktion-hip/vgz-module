@@ -36,11 +36,22 @@ form:
       language: javascript
       height: 200
     titles:
-      $type: jcrMultiValueField
+      $type: jcrMultiField
       label: imgmap.page.link
       field:
-        $type: textField
-        label: ""
+        $type: compositeField
+        label: imgmap.page.field.desc
+        properties:
+          label:
+            $type: textField
+            label: imgmap.page.field.label
+          key:
+            $type: textField
+            label: imgmap.page.field.key
+          url:
+            $type: pageLinkField
+            showOptions: true
+            label: imgmap.page.field.url
     hideInNav:
       $type: checkBoxField        
   layout:
