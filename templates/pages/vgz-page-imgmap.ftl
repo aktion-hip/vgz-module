@@ -31,11 +31,11 @@
         [#if content.titles?size > 0]
           <div class="imgmap-titles">
             <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">              
-              [#list content.titles as title ]
+              [#list cmsfn.children(content.titles) as area ]
                 <div class="el-item uk-grid-margin uk-first-column"
                   onmouseover="areaOn(this)" onmouseout="areaOff(this)"
-                  data-vgz-id="${title?lower_case}">
-                  <a class="el-content uk-button uk-button-default" href="#">${title}</a>
+                  data-vgz-id="${area.key?lower_case}">
+                  <a class="el-content uk-button uk-button-default" href="${cmsfn.link(cmsfn.contentById(area.url))}">${area.label}</a>
                 </div>
               [/#list]
             </div>
