@@ -29,7 +29,7 @@
 
         <!-- include titles -->
         [#if content.titles?size > 0]
-          <div class="imgmap-titles">
+          <div class="imgmap-titles btnRow btnRowRight">
             <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">              
               [#list cmsfn.children(content.titles) as area ]
                 <div class="el-item uk-grid-margin uk-first-column"

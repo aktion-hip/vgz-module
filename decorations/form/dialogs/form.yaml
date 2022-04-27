@@ -4,6 +4,7 @@ form:
       fields: !override
         formTitle:
         formText:
+        formName:
     tabSubmit:
       fields: !override
         errorTitle:
