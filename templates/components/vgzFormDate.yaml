@@ -1,0 +1,5 @@
+title: vgzFormDate
+renderType: freemarker
+templateScript: /vgz-module/templates/components/vgzFormDate.ftl
+dialog: vgz-module:components/vgzFormDate
+modelClass: info.magnolia.module.form.templates.components.FormFieldModel

@@ -4,3 +4,5 @@ areas:
     availableComponents:
       formCheckbox:
         id: vgz-module:components/vgzFormField
+      formDate:
+        id: vgz-module:components/vgzFormDate

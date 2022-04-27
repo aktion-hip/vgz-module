@@ -1,6 +1,11 @@
 label: vgzFormField.label
 form:
   properties:
+    title:
+      $type: textField
+      label: vgzFormField.title
+      i18n: true
+      description: vgzFormField.title.desc
     controlName:
       $type: textField
       label: vgzFormField.name
@@ -47,6 +52,7 @@ form:
     tabs:
       - name: tabMain
         fields:
+          - name: title
           - name: controlName
           - name: entries
           - name: mandatory
