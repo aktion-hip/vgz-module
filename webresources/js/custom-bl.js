@@ -27,3 +27,17 @@ function vgzContainerToggle(button) {
         button.classList.add("vgz-toggle-container-button--open");
     }
 };
+
+/**
+ * Document ready handler: displays toggle areas open if they contain a feedback
+ */
+document.addEventListener("DOMContentLoaded", e => {
+    const toggleContent = e.target.querySelectorAll(".vgz-toggle-container-area");
+    [...toggleContent].forEach(area => {
+        const success = area.querySelector(".text.success");
+        const error = area.querySelector(".text.error");
+        if (success || error) {
+            area.style.display = "block";
+        }
+    });
+});
