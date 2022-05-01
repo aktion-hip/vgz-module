@@ -32,3 +32,14 @@
   [#return (root?size > 0)?then(root[0], content)]
 [/#function]
 
+[#function isProxy page]
+  [#return cmsfn.metaData(page, "mgnl:template") == "vgz-module:pages/vgz-proxy"]
+[/#function]
+
+[#function hideInNav page]
+  [#return isProxy(page)?then(false, page.hideInNav)]
+[/#function]
+
+[#function getLinkChkd page]
+  [#return isProxy(page)?then(cmsfn.link(cmsfn.contentById(page.target)), cmsfn.link(page))]
+[/#function]
