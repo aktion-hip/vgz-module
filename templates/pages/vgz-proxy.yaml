@@ -1,0 +1,5 @@
+title: vgz-proxy
+templateScript: /vgz-module/templates/pages/vgz-proxy.ftl
+renderType: freemarker
+dialog: vgz-module:pages/vgz-proxy
+visible: true

@@ -1,0 +1,20 @@
+label: vgz.page.proxy
+form:
+  properties:
+    title:
+      $type: textField
+      label: vgz.page.proxy.title
+      i18n: true
+      required: true
+    target:
+      $type: pageLinkField
+      label: vgz.page.proxy.target
+      i18n: true
+      required: true
+  layout:
+    $type: tabbedLayout
+    tabs:
+      tabMain:
+        fields:
+          - name: title
+          - name: target

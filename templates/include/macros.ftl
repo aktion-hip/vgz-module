@@ -8,8 +8,8 @@
         <div>
           <ul class="uk-nav uk-navbar-dropdown-nav">
             [#list children as child ]
-              [#if !child.hideInNav]
-                <li><a href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a></li>
+              [#if !hideInNav(child)]
+                <li><a href="${getLinkChkd(child)}">${child.navigationTitle!child.title!}</a></li>
               [/#if]
             [/#list]	  
           </ul>
@@ -27,8 +27,8 @@
     <!-- Sub-Navigation Start -->
     <ul class="uk-nav-sub">
       [#list children as child ]
-        [#if !child.hideInNav]
-          <li><a href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a></li>
+        [#if !hideInNav(child)]
+          <li><a href="${getLinkChkd(child)}">${child.navigationTitle!child.title!}</a></li>
         [/#if]
       [/#list]
     </ul>
@@ -43,8 +43,8 @@
     <div id="subNav" class="btnRow btnRowRight">
       <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">
         [#list children as child ]
-          [#if !child.hideInNav]
-            <div class="el-item uk-first-column"> <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a> </div>
+          [#if !hideInNav(child)]
+            <div class="el-item uk-first-column"> <a class="el-content uk-button uk-button-default" href="${getLinkChkd(child)}">${child.navigationTitle!child.title!}</a> </div>
           [/#if]
         [/#list]
       </div>
@@ -62,9 +62,9 @@
         <div class="btnRow btnRowRight">
           <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">
             [#list children as child ]
-              [#if !child.hideInNav]
+              [#if !hideInNav(child)]
                 <div class="el-item uk-grid-margin uk-first-column">
-                  <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a>
+                  <a class="el-content uk-button uk-button-default" href="${getLinkChkd(child)}">${child.navigationTitle!child.title!}</a>
                 </div>                      
               [/#if]
             [/#list]
@@ -77,9 +77,9 @@
         <div class="btnRow btnRowRight">
           <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid uk-grid-stack" uk-grid="">
             [#list children as child ]
-              [#if !child.hideInNav]
+              [#if !hideInNav(child)]
                 <div class="el-item uk-grid-margin uk-first-column">
-                  <a class="el-content uk-button uk-button-default" href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a>
+                  <a class="el-content uk-button uk-button-default" href="${getLinkChkd(child)}">${child.navigationTitle!child.title!}</a>
                 </div>                      
               [/#if]
             [/#list]

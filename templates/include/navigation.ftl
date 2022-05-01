@@ -20,42 +20,44 @@
         <div class="uk-child-width-1-1 uk-grid uk-grid-stack" uk-grid="">
           <div>
             <div class="uk-panel">
-              <!-- Mobile-Navigation Start -->
+              <!-- Mobile-Navigation Start (hamburger menu) -->
               <ul class="uk-nav uk-nav-default uk-nav-parent-icon" uk-nav="">
                 [#list cmsfn.children(root, "mgnl:page") as child ]
                   [#if cmsfn.metaData(child, "mgnl:template") != "vgz-module:pages/vgz-homepage-intern"]
                     [#if (content.@path == child.@path) || isAncestorOf(child, content) ]
+                      <!-- highlight entry of current page -->
                       <li class="uk-active">
-                        [#if !child.hideInNav]                        
-                          <a href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a>
+						            [#if !hideInNav(child)]
+                          <a href="${getLinkChkd(child)}">${child.navigationTitle!child.title!}</a>
                         [/#if]
                       </li>
                       [#if hasChildren(child)]
                         <li class="uk-active uk-parent vgz-mobile-parent">
-                          <a href="${cmsfn.link(child)}"></a>
+                          <a href="${getLinkChkd(child)}"></a>
                           [@mobNavigation child /]
                         </li>
                       [/#if]
                     [#else]
+                      <!-- entries of other pages -->
                       <li>
-                        [#if !child.hideInNav]
-                          <a href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a>
+            						[#if !hideInNav(child)]
+                          <a href="${getLinkChkd(child)}">${child.navigationTitle!child.title!}</a>
                         [/#if]
                       </li>
                       [#if hasChildren(child)]
                         <li class="uk-parent vgz-mobile-parent">
-                          <a href="${cmsfn.link(child)}"></a>
+                          <a href="${getLinkChkd(child)}"></a>
                           [@mobNavigation child /]
                         </li>
                       [/#if]
                     [/#if]
                   [/#if]
-                [/#list]
+                [/#list]              
                 [#if !isInIntern(content)]
                   [#assign root = cmsfn.root(content, "mgnl:page")!content ]
                   [#assign intern = cmsfn.contentListByTemplateId(cmsfn.asJCRNode(root), "vgz-module:pages/vgz-homepage-intern") ]
                   [#assign internHome = cmsfn.asContentMap(intern[0]) ]
-                  <li><a href="${cmsfn.link(internHome)}">${internHome.navigationTitle!"Verein"}</a></li>
+                  <li><a href="${getLinkChkd(internHome)}">${internHome.navigationTitle!"Verein"}</a></li>
                 [/#if]
               </ul>
               <!-- Mobile-Navigation End -->
@@ -86,21 +88,23 @@
     <div class="uk-container">
       <nav class="uk-navbar" uk-navbar="{align:left,boundary:!.uk-navbar-container}">
         <div class="uk-navbar-center">
-          <!-- Navigation Start -->
+          <!-- Navigation Start (horizontal menu bar at top of page) -->
           <ul class="uk-navbar-nav">
             [#list cmsfn.children(root, "mgnl:page") as child ]
               [#if cmsfn.metaData(child, "mgnl:template") != "vgz-module:pages/vgz-homepage-intern"]
                 [#if (content.@path == child.@path) || isAncestorOf(child, content) ]
+                  <!-- highlight entry of current page -->
                   <li class="uk-parent uk-active">
-                    [#if !child.hideInNav]                      
-                      <a href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a>
+                    [#if !hideInNav(child)]
+                      <a href="${getLinkChkd(child)}">${child.navigationTitle!child.title!}</a>
                       [@subNavigation child /]
                     [/#if]
                   </li>
                 [#else]
+                  <!-- entries of other pages -->
                   <li>
-                    [#if !child.hideInNav]                     
-                      <a href="${cmsfn.link(child)}">${child.navigationTitle!child.title!}</a>
+                    [#if !hideInNav(child)]
+                      <a href="${getLinkChkd(child)}">${child.navigationTitle!child.title!}</a>
                       [@subNavigation child /]
                     [/#if]
                   </li>
@@ -111,7 +115,7 @@
               [#assign root = cmsfn.root(content, "mgnl:page")!content ]
               [#assign intern = cmsfn.contentListByTemplateId(cmsfn.asJCRNode(root), "vgz-module:pages/vgz-homepage-intern") ]
               [#assign internHome = cmsfn.asContentMap(intern[0]) ]
-              <li><a href="${cmsfn.link(internHome)}">${internHome.navigationTitle!"Verein"}</a></li>
+              <li><a href="${getLinkChkd(internHome)}">${internHome.navigationTitle!"Verein"}</a></li>
             [/#if]
           </ul>
           <!-- Navigation End -->
