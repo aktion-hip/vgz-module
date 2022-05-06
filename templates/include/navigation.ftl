@@ -26,7 +26,7 @@
                   [#if cmsfn.metaData(child, "mgnl:template") != "vgz-module:pages/vgz-homepage-intern"]
                     [#if (content.@path == child.@path) || isAncestorOf(child, content) ]
                       <!-- highlight entry of current page -->
-                      <li class="uk-active">
+                      <li class="uk-active vgz-mobile-nav">
 						            [#if !hideInNav(child)]
                           <a href="${getLinkChkd(child)}">${child.navigationTitle!child.title!}</a>
                         [/#if]
@@ -39,7 +39,7 @@
                       [/#if]
                     [#else]
                       <!-- entries of other pages -->
-                      <li>
+                      <li class="vgz-mobile-nav">
             						[#if !hideInNav(child)]
                           <a href="${getLinkChkd(child)}">${child.navigationTitle!child.title!}</a>
                         [/#if]
