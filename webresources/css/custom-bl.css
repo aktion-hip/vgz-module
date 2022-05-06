@@ -227,3 +227,8 @@ h2.vgz-toggle-container-button{
 .vgz-toggle-container-button--open::after {
     transform: rotate(180deg);
 }
+
+.vgz-home-hidden {
+    display: none;
+}
+
