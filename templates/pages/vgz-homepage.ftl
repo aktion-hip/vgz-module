@@ -23,9 +23,14 @@
       [#include "../include/navigation.ftl"]
       [@vgzLogo true /]
 
+      <!-- load background images -->
+      [#list content.images as bgrImg ]
+        <span data-vgz-bgr="${damfn.getAssetLink(bgrImg)}" class="vgz-home-hidden"></span>
+      [/#list]
+
       <!-- Content - Screen-Height -->
       <div id="content" class="uk-section-muted home">
-        <div style="background-image: url(${damfn.getAssetLink(content.image!)}); min-height: calc(-60px + 100vh);" class="uk-background-norepeat uk-background-cover uk-background-center-center uk-section uk-flex uk-flex-middle" uk-height-viewport="offset-top: true;">
+        <div style="min-height: calc(-60px + 100vh);" class="uk-background-norepeat uk-background-cover uk-background-center-center uk-section uk-flex uk-flex-middle vgz-home-div-bgr" uk-height-viewport="offset-top: true;">
           <div class="uk-width-1-1">
             <div class="tm-grid-expand uk-child-width-1-1 uk-grid-margin uk-grid uk-grid-stack" uk-grid>
               <div class="uk-first-column">
@@ -47,4 +52,31 @@
       </div>      
     [/#if]
   </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", e => {
+      const interval = "${(content.imagesInterval!0)}" * 1000;
+      const holder = document.querySelector(".vgz-home-div-bgr");
+      holder.style.transition = "background-image 1s linear";
+      const imageElements = document.querySelectorAll(".vgz-home-hidden");
+      const images = [];
+      imageElements.forEach(el => images.push(el.dataset.vgzBgr));
+      shuffle(images);
+      holder.style.backgroundImage = "url('" + images[0] + "')";
+      var index = 0;
+      setInterval(() => {
+        holder.style.backgroundImage = "url('" + images[(index++ % images.length)] + "')";
+      }, interval);
+    });
+    
+    function shuffle(array) {
+      var curId = array.length;
+      while (0 !== curId) {
+        var randId = Math.floor(Math.random() * curId);
+        curId -= 1;
+        var tmp = array[curId];
+        array[curId] = array[randId];
+        array[randId] = tmp;
+      }
+    };
+  </script>
 </html>
