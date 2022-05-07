@@ -24,6 +24,9 @@ model:
       label: vgz.event.end.date
     - name: end_time
       label: vgz.event.end.time
+    - name: registration_mail
+      type: String
+      label: vgz.event.registration
     - name: description
       type: richText
       label: vgz.event.description
