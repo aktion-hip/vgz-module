@@ -59,9 +59,14 @@
                             [#if event.description?has_content]
                                 ${cmsfn.decode(event).description}
                             [/#if]
-                            <p class="uk-text-large">${event.start_date?string["EEEE, d. MMMM yyyy"]}<br />${event.start_time!}</p>
                             [#if event.end_date?has_content]
+                              <p class="uk-text-large">${event.start_date?string["EEEE, d. MMMM yyyy"]}<br />${event.start_time!}</p>
                               <p class="uk-text-large">bis ${event.end_date?string["EEEE, d. MMMM yyyy"]}<br />${event.end_time!}</p>
+                            [#else]
+                              <p class="uk-text-large">${event.start_date?string["EEEE, d. MMMM yyyy"]}<br />${event.start_time!} - ${event.end_time!}</p>
+                            [/#if]
+                            [#if event.registration_mail?has_content]
+                              <a class="el-content uk-button uk-button-default" href="mailto:${event.registration_mail}?subject=Stadtoase Anmeldung">Anmelden</a>
                             [/#if]
                           </div>
                         </div>
