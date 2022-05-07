@@ -99,17 +99,21 @@
     <div class="vk-event_date-day">
       ${eventDate?date?string["d. MMMM yyyy"]}
     </div>
-    <div class="vk-event_date-time">
-      ${eventTime!}
-    </div>
     [#if endDate?is_date_like]
+      <div class="vk-event_date-time">
+        ${eventTime!}
+      </div>
       <div class="vk-event_date-day">
         bis ${endDate?date?string["d. MMMM yyyy"]}
       </div>
-    [/#if]
-    [#if endTime?length > 0]
+      [#if endTime?length > 0]
+        <div class="vk-event_date-time">
+          ${endTime}
+        </div>
+      [/#if]
+    [#else]
       <div class="vk-event_date-time">
-        ${endTime}
+        ${eventTime!} - ${endTime}
       </div>
     [/#if]
   </div>
