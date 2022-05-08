@@ -11,6 +11,10 @@ cssFiles:
     addFingerPrint: true
     link: /.resources/vgz-module/webresources/css/custom-bl.css
     media: all
+  flatpickr:
+    addFingerPrint: true
+    link: /.resources/vgz-module/webresources/css/flatpickr.min.css
+    media: all
 jsFiles:
   uikit:
     addFingerPrint: true
@@ -27,6 +31,12 @@ jsFiles:
   custom-bl:
     addFingerPrint: true
     link: /.resources/vgz-module/webresources/js/custom-bl.js
+  flatpickr:
+    addFingerPrint: true
+    link: /.resources/vgz-module/webresources/js/flatpickr.min.js
+  flatpickr-de:
+    addFingerPrint: true
+    link: /.resources/vgz-module/webresources/js/flatpickr-de.min.js
 imaging:
   class: info.magnolia.templating.imaging.VariationAwareImagingSupport
   variations:

@@ -58,4 +58,10 @@ document.addEventListener("DOMContentLoaded", e => {
             }
         });
     });
+    // add flatpickr calendar to date fields
+    flatpickr(".vgz-flatpickr", {
+        dateFormat: "d.m.Y",
+        allowInput: true,
+        "locale": "de"
+    });    
 });

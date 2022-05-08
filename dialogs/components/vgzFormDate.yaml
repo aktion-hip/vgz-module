@@ -1,1 +1,28 @@
 label: vgzFormDate.label
+form:
+  properties:
+    title:
+      $type: textField
+      label: vgzFormDate.title
+      i18n: true
+      description: vgzFormDate.title.desc
+      required: true
+    controlName:
+      $type: textField
+      label: vgzFormField.name
+      i18n: true
+      description: vgzFormField.name.desc
+      required: true
+    mandatory:
+      $type: checkBoxField
+      label: vgzFormField.mandatory
+      buttonLabel: vgzFormField.mandatory.lbl
+      i18n: true
+  layout:
+    $type: tabbedLayout
+    tabs:
+      - name: tabMain
+        fields:
+          - name: title
+          - name: controlName
+          - name: mandatory
