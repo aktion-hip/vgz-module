@@ -1,0 +1,3 @@
+class: info.magnolia.virtualuri.mapping.DefaultVirtualUriMapping
+fromUri: /
+toUri: forward:/stadtoase
