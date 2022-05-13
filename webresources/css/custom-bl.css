@@ -189,10 +189,6 @@ em {
 .vgz-icon-wetter {
     background-image: url(../img/icons/icon-wetter.svg);
 }
-.vgz-img-areal {
-    background-image: url(../img/icons/areal.png);
-    background-repeat: no-repeat;
-}
 
 h2.vgz-toggle-container-button{
     margin-bottom: 0;
