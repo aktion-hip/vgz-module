@@ -26,7 +26,7 @@
   <!-- Navigation over Image left -->
   <div class="btnRow btnRowLeft uk-visible@m">
     <div class="uk-flex-middle uk-grid-small uk-child-width-auto uk-grid" uk-grid="">
-      <div class="el-item"><a class="el-content uk-button uk-button-default" href="home.php">Zurück</a></div>
+      <div class="el-item"><a class="el-content uk-button uk-button-default" href="/">Zurück</a></div>
     </div>
   </div>
   
