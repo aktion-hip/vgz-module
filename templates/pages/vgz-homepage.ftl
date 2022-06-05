@@ -17,28 +17,25 @@
     [#list theme.jsFiles as jsFile]
       <script src="${jsFile.link}"></script>
     [/#list]
+    [#assign img_interval = (content.imagesInterval!10)]
+    <style>
+      .vgz-fading {
+        animation: vgz_fading ${img_interval}s infinite;
+      }
+      @keyframes vgz_fading { 0%{opacity:0} 20%{opacity:1} 80%{opacity:1} 100%{opacity:0} }
+    </style>
   </head>
   <body class="vgz-homepage ${cmsfn.language()}">
     <div class="tm-page">
       [#include "../include/navigation.ftl"]
       [@vgzLogo true /]
 
-      <!-- load background images -->
+      <!-- load homepage images -->
+      <div class="vgz-home-div-bgr">        
       [#list content.images as bgrImg ]
-        <span data-vgz-bgr="${damfn.getAssetLink(bgrImg)}" class="vgz-home-hidden"></span>
+        <img class="vgz-home-img vgz-fading" src="${damfn.getAssetLink(bgrImg)}">
       [/#list]
-
-      <!-- Content - Screen-Height -->
-      <div id="content" class="uk-section-muted home">
-        <div style="min-height: calc(-60px + 100vh);" class="uk-background-norepeat uk-background-cover uk-background-center-center uk-section uk-flex uk-flex-middle vgz-home-div-bgr" uk-height-viewport="offset-top: true;">
-          <div class="uk-width-1-1">
-            <div class="tm-grid-expand uk-child-width-1-1 uk-grid-margin uk-grid uk-grid-stack" uk-grid>
-              <div class="uk-first-column">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>      
+      </div>
 
       [#include "../include/footer.ftl"]
     </<div>
@@ -54,19 +51,27 @@
   </body>
   <script>
     document.addEventListener("DOMContentLoaded", e => {
-      const interval = "${(content.imagesInterval!0)}" * 1000;
-      const holder = document.querySelector(".vgz-home-div-bgr");
-      holder.style.transition = "background-image 1s linear";
-      const imageElements = document.querySelectorAll(".vgz-home-hidden");
-      const images = [];
-      imageElements.forEach(el => images.push(el.dataset.vgzBgr));
-      shuffle(images);
-      holder.style.backgroundImage = "url('" + images[0] + "')";
-      var index = 0;
-      setInterval(() => {
-        holder.style.backgroundImage = "url('" + images[(index++ % images.length)] + "')";
-      }, interval);
+      // set logo's z-index
+      const logo = document.querySelector(".imgLogo");
+      logo.style["z-index"] = 10;
+      // initialize image change
+      const interval = ${(content.imagesInterval!10)} * 1000;
+      const imageElements = document.querySelectorAll("img.vgz-home-img");
+      const indices = shuffle(Array(imageElements.length).fill().map((_, idx) => idx));
+      const current = imageElements[indices[0]];
+      current.style.display = "block";
+      // display images (recursive call of changeImage())
+      changeImage(imageElements, indices, interval, 0);
     });
+
+    function changeImage(imageElements, indices, interval, index) {
+      const current = imageElements[indices[index]];
+      current.style.display = "none";
+      var pointer = ++index % indices.length;
+      const next = imageElements[indices[pointer]];
+      next.style.display = "block";
+      setTimeout(changeImage, interval, imageElements, indices, interval, pointer);
+    };
     
     function shuffle(array) {
       var curId = array.length;
@@ -77,6 +82,7 @@
         array[curId] = array[randId];
         array[randId] = tmp;
       }
+      return array;
     };
   </script>
 </html>
