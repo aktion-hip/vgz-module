@@ -33,7 +33,11 @@
       <!-- load homepage images -->
       <div class="vgz-home-div-bgr">        
       [#list content.images as bgrImg ]
-        <img class="vgz-home-img vgz-fading" src="${damfn.getAssetLink(bgrImg)}">
+        [#attempt]
+          <img class="vgz-home-img vgz-fading" src="${damfn.getAssetLink(bgrImg)}">
+        [#recover]
+          <p>Not all background images published!</p>
+        [/#attempt]
       [/#list]
       </div>
 
