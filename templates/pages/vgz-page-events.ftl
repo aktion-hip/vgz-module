@@ -18,11 +18,11 @@
     [/#list]
   </head>
   <body class="vgz-page-events ${cmsfn.language()}">
-      [#assign clsIntern = isInIntern(content)?then("intern", "")]
-      <div class="tm-page ${clsIntern}">
-        [#assign root = cmsfn.root(content, "mgnl:page") ]
-        [#include "../include/navigation.ftl"]
-        [@vgzLogo false /]
+    [#assign clsIntern = isInIntern(content)?then("intern", "")]
+    <div class="tm-page ${clsIntern}">
+      [#assign root = cmsfn.root(content, "mgnl:page") ]
+      [#include "../include/navigation.ftl"]
+      [@vgzLogo false /]
 
   <!-- Content - 2 Cols -->
   [#assign events = getEvents() ]
@@ -31,7 +31,7 @@
       <div class="uk-width-1-2@m">
         <!-- Content - Col Left - start -->
         <div class="uk-section-muted">
-          <div style="background-image: none; height: calc(-60px + 100vh);" class="uk-background-norepeat uk-background-cover uk-background-center-center uk-flex" uk-height-viewport="offset-top: true;">
+          <div style="background-image: none;" class="uk-background-norepeat uk-background-cover uk-background-center-center uk-flex" uk-height-viewport="offset-top: true;">
             <div class="uk-width-1-1">
               <div class="tm-grid-expand uk-child-width-1-1 uk-grid-margin uk-grid uk-grid-stack" uk-grid="">
                 <div class="uk-first-column">
@@ -80,7 +80,6 @@
           </div>
         </div>
         <!-- Content - Col Left - end -->
-    
       </div>
 
       <div class="uk-grid-item-match uk-width-1-2@m">
@@ -104,11 +103,13 @@
               </div>
             </div>
           </div>
+        </div>
+        <!-- Content - Col Right - end -->
       </div>
     </div>
   </div>        
 
-        [#include "../include/footer.ftl"]     
+        [#include "../include/footer.ftl"]
       </div>
   </body>
 </html>
