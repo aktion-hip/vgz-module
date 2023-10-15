@@ -88,7 +88,7 @@
 <!-- header screen -->
 <div class="tm-header uk-visible@m" uk-header="">
   <div class="uk-navbar-container">
-    <div class="uk-container">
+    <div class="uk-container vgz-nav-parent">
       <nav class="uk-navbar" uk-navbar="{align:left,boundary:!.uk-navbar-container}">
         <div class="uk-navbar-center">
           <!-- Navigation Start (horizontal menu bar at top of page) -->
@@ -124,6 +124,7 @@
           <!-- Navigation End -->
         </div>
       </nav>
+      <vgz-search contextPath="${ctx.contextPath}"/>
     </div>
   </div>
 </div> 	 

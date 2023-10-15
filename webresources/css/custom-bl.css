@@ -228,3 +228,24 @@ h2.vgz-toggle-container-button{
     display: none;
 }
 
+.vgz-nav-parent {
+    position: relative;
+}
+.vgz-nav-parent.uk-container {
+    width: 100%;
+    max-width: 90%;
+}
+
+.vgz-search-results {
+    position: fixed;
+    display: block;
+    width: 85%;
+    height: 70%;
+    top: 3.3em;
+    left: 3em;
+    right: 0;
+    bottom: 0;
+    background-color: #FFF;
+    padding: 3em 4em;
+    z-index: 2;
+}
