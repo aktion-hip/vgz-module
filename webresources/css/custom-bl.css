@@ -247,5 +247,22 @@ h2.vgz-toggle-container-button{
     bottom: 0;
     background-color: #FFF;
     padding: 3em 4em;
+    opacity: 0.95;
     z-index: 2;
+}
+.vgz-search-results .vgz-result-item-title  {
+    font-weight: bold;
+    font-size: larger;
+}
+.vgz-search-results .vgz-result-item-title > a {
+    text-decoration: underline;
+}
+.vgz-search-results .vgz-search-result-item {
+    margin-bottom: 2em;
+}
+.vgz-search-results .vgz-search-result-item p {
+    margin: 0;
+}
+.vgz-search-results .vgz-search-result-item strong {
+    font-style: italic;
 }

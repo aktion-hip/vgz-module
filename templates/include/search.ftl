@@ -6,9 +6,12 @@
         <div class="vgz-search-content">
             [#if searchResults?has_content]
                 [#list searchResults as item]
-                    <a href="${cmsfn.link(item)}">
-                        <p>${item.title!}</p>
-                    </a>
+                    <div class="vgz-search-result-item">
+                        <div class="vgz-result-item-title">                            
+                            <a href="${cmsfn.link(item)}">${item.title!}</a>
+                        </div>
+                        ${item.excerpt!}
+                    </div>
                 [/#list]
             [#else]
                 Keine Ergebnisse gefunden zu "${queryStr}"!

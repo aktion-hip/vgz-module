@@ -6,6 +6,7 @@
     [#include "../include/functions.ftl"]
     [#include "../include/macros.ftl"]
     [#include "../include/head.ftl"]
+    [#include "../include/search.ftl"]
 
     [#assign site = sitefn.site()!]
     [#assign theme = sitefn.theme(site)!]

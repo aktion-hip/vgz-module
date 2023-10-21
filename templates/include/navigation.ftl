@@ -124,7 +124,7 @@
           <!-- Navigation End -->
         </div>
       </nav>
-      <vgz-search contextPath="${ctx.contextPath}"/>
+      <vgz-search data-vgz-intern="${clsIntern}" aria-expanded="false" />
     </div>
   </div>
 </div> 	 

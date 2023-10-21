@@ -52,8 +52,12 @@ template.innerHTML = `
 }
 .vgz-search-query-clear {
     position: absolute;
+    display: none;
     right: 0.5em;
     top: 0.5em;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
     z-index: 3;
 }
 .vgz-search-close {
@@ -66,9 +70,10 @@ template.innerHTML = `
     top: 0.1em;
     cursor: pointer;
 }
-.vgz-search-close .vgz-search-close-btn {
+.vgz-search-close svg {
     width: 1.2em;
     height: auto;
+    fill: #465F0E;
 }
 .vgz-search-close .vgz-search-close-hint {
     position: absolute;
@@ -76,24 +81,53 @@ template.innerHTML = `
     left: 0.6em;
     color: #465F0E;
 }
+svg.vgz-search-icon {
+    fill: #465F0E;
+}
+.vgz-search-container.internal svg.vgz-search-icon {
+    fill: #FFF;
+}
+.vgz-search-container.internal .vgz-search-close {
+    background-color: #465F0E;;
+}
+.vgz-search-container.internal .vgz-search-close > svg {
+    fill: #FFF;
+}
+.vgz-search-container.internal .vgz-search-close .vgz-search-close-hint {
+    color: #FFF;
+}
+svg.vgz-search-icon:hover {
+    fill: #AFAA1B;
+}
 </style>
 
 <div class="vgz-search-container">
   <div class="vgz-search-overlay">
     <input class="vgz-search-query"/>
-    <img class="vgz-search-query-clear" title="Clear"/>
+    <button aria-label="Clear" class="vgz-search-query-clear">
+        <svg class="vgz-search-icon-clear" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" fill="#465F0E"/>
+        </svg>
+    </button>
   </div>
   <div class="vgz-search">
     <button aria-label="Filter schliessen" class="vgz-search-close">
-	    <img class="vgz-search-close-btn" title="Close"/>
-	    <span aria-hidden="true" class="vgz-search-close-hint">esc</span>
+        <svg class="vgz-search-icon-cross" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+        </svg>
+        <span aria-hidden="true" class="vgz-search-close-hint">esc</span>
     </button>
 
-    <img class="vgz-search-btn" alt="search" title="Search"/>
+    <svg class="vgz-search-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+    </svg>
   </div>
 </div>
 `
 
+/**
+ * The custom element for the search.
+ */
 class VgzSearch extends HTMLElement {
 
     constructor() {
@@ -107,31 +141,41 @@ class VgzSearch extends HTMLElement {
         this.attachShadow({mode: 'open'});
         this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-        const contextPath = this.getAttribute("contextPath");
-        this.input.init(contextPath);
-
+        const isIntern = this.dataset.vgzIntern;
+        if (isIntern) {
+            this.shadowRoot.querySelector(".vgz-search-container").classList.add("internal");
+        }
+        
         // prepare the search icon
-        const bntSearch = this.shadowRoot.querySelector(".vgz-search-btn");
-        bntSearch.src = contextPath + pathImg + imgSearch;
-        bntSearch.addEventListener("click", e => {
-            this.input.handleClick(e.target);
+        const btnSearch = this.shadowRoot.querySelector(".vgz-search-icon");
+        btnSearch.addEventListener("click", () => {
+            this.input.handleClick();
             this.close.show();
         });
-
+        
+        // prepare the input field
+        this.input.init(btnSearch);
         // prepare the close icon
-        this.close.init(this.shadowRoot.querySelector(".vgz-search-close"), contextPath);
+        this.close.init(this.shadowRoot.querySelector(".vgz-search-close"));
 
         this.handleParams();
     }
 
+    /**
+     * If we have a search parameter, we have to restore the field and buttons.
+     */
     handleParams() {
         const urlParams = new URLSearchParams(window.location.search);
         const queryStr = urlParams.get("queryStr");
         if (queryStr) {
+            // remove search parameter from URL
             const url = new URL(window.location.href);
             url.searchParams.delete("queryStr");
             history.replaceState(history.state, "", url.href);
-            this.input.restore(queryStr, this.shadowRoot.querySelector(".vgz-search-container"));
+            // restore input field
+            this.input.restore(queryStr);
+            // restore close button
+            this.close.show();
         }
     }
 
@@ -144,6 +188,10 @@ class VgzSearch extends HTMLElement {
     }
 }
 
+/**
+ * The close button hides the field to enter the search query.
+ * This button is displayed only if the search field is displayed.
+ */
 class CloseButton {
 
     constructor(parent) {
@@ -153,14 +201,11 @@ class CloseButton {
     /**
      * Initialize the close button.
      * 
-     * @param {*} root 
-     * @param {*} contextPath 
+     * @param {*} root the close button element
      */
-    init(root, contextPath) {
+    init(root) {
         this.root = root;
-        this.btnClose = root.querySelector(".vgz-search-close-btn");
-        this.btnClose.src = contextPath + pathImg + imgCross;
-        this.btnClose.addEventListener("click", () => this.parent.hideOverlay());
+        this.root.addEventListener("click", () => this.parent.hideOverlay());
     }
 
     /**
@@ -175,33 +220,68 @@ class CloseButton {
      */
     hide() {
         this.root.style.display = "none";
+        const results = document.querySelector(".vgz-search-results");
+        if (results) {
+            results.style.display = "none";
+        }
     }
 
 }
 
+/**
+ * The clear button is part of the input field and is displayed only if the field contains some input.
+ */
+class ClearButton {
+
+    init(searchOverlay, searchField) {
+        this.btnClear = searchOverlay.querySelector(".vgz-search-query-clear");
+        this.btnClear.addEventListener("click", () => {
+            searchField.value = "";
+            this.hide();
+        });
+    }
+
+    chkDisplay(searchField, fixLength) {
+        const length = searchField.value.trim().length + fixLength;
+        this.btnClear.style.display = length > 0 ? "block" : "none";
+    }
+
+    hide() {
+        this.btnClear.style.display = "none";
+    }
+    
+    show() {
+        this.btnClear.style.display = "block";
+    }
+
+}
+
+/**
+ * The model of the field where the user can enter the search query.
+ */
 class InputField {
 
     constructor(parent) {
         this.parent = parent;
         this.isOpen = false;
-        this.btnClear = null;
+        this.btnClear = new ClearButton("");
     }
 
-    init(contextPath) {
-        this.contextPath = contextPath;
-    }
-    
-    /**
-     * The user clicked the search image.
-     * 
-     * @param {HTMLElement} target the reciever of the click action
-     */
-    handleClick(target) {
+    init(target) {
+        this.btnClear = new ClearButton();
+
         const searchContainer = target.closest(".vgz-search-container");
         this.searchField = searchContainer.querySelector(".vgz-search-query");
         this.searchOverlay = searchContainer.querySelector(".vgz-search-overlay");
         
-        this.createClear(this.searchOverlay, this.searchField);
+        this.btnClear.init(this.searchOverlay, this.searchField);
+        this.searchField.addEventListener("keydown", e => this.handleKey(e, this.btnClear));
+    }
+    
+    /**
+     * The user clicked the search image.
+     */
+    handleClick() {
         if (this.isOpen) {
             this.doSearch(this.searchField);
         } else {
@@ -216,23 +296,12 @@ class InputField {
     }
 
     doSearch(searchField) {
-        const queryStr = searchField.value.trim();
-        location.href = location.href + "?queryStr=" + queryStr + "*";
+        const queryStr = searchField.value.trim().split(" ");
+        queryStr.forEach((item, index, arr) => arr[index] = item + "*");
+        location.href = location.href + "?queryStr=" + queryStr.join("+");
     }
 
-    createClear(searchOverlay, searchField) {
-        if (!this.btnClear) {
-            this.btnClear = searchOverlay.querySelector(".vgz-search-query-clear");
-            this.btnClear.src = this.contextPath + pathImg + imgCross;
-            this.btnClear.addEventListener("click", () => {
-                searchField.value = "";
-            });
-            searchField.addEventListener("keydown", e => this.handleKey(e));
-        }
-    }
-
-    handleKey(keyEvent) {
-        const key = keyEvent.key;
+    handleKey(keyEvent, btnClear) {
         const code = keyEvent.keyCode;
         if (code == 27) {
             this.parent.hideOverlay(); // esc
@@ -240,22 +309,26 @@ class InputField {
             if (this.searchField) {
                 this.doSearch(this.searchField);
             }
+        } else if (code == 8) { // backspace
+            btnClear.chkDisplay(this.searchField, -1);
+        } else if (code == 46) { // delete
+            btnClear.chkDisplay(this.searchField, -1);
+        } else {
+            btnClear.chkDisplay(this.searchField, 1);
         }
     }
 
     /**
      * Redisplay the search input field after the user sent the search query to the server.
      * 
-     * @param {String} queryStr the query parameter for the search.
-     * @param {*} searchContainer 
+     * @param {String} queryStr 
      */
-    restore(queryStr, searchContainer) {
-        const searchOverlay = searchContainer.querySelector(".vgz-search-overlay");
-        const searchField = searchContainer.querySelector(".vgz-search-query");
-
-        searchField.value = queryStr.replace("*", "");
-        this.show(searchOverlay, searchField);
-        this.createClear(searchOverlay, searchField);
+    restore(queryStr) {
+        this.searchField.value = queryStr.replaceAll("*", "");
+        this.show(this.searchOverlay, this.searchField);
+        if (this.searchField.value) {
+            this.btnClear.show();
+        }
     }
 
     /**
