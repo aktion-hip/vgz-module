@@ -266,3 +266,10 @@ h2.vgz-toggle-container-button{
 .vgz-search-results .vgz-search-result-item strong {
     font-style: italic;
 }
+
+.vgz-mobile-search {
+    position: relative;
+    top: -3.3em;
+    right: 1em;
+    z-index: 2;
+}

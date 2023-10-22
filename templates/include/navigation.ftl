@@ -12,6 +12,9 @@
             </a> 
           </div>
         </nav>
+        <div class="vgz-mobile-search">        
+          <vgz-search data-vgz-intern="${clsIntern}" data-vgz-mobile="true" aria-expanded="false" />
+        </div>
       </div>
     </div>
     <div id="tm-mobile" class="uk-modal-full uk-modal" uk-modal="">

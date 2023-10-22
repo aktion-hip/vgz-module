@@ -28,6 +28,9 @@ template.innerHTML = `
     margin: 0.5em 10em 0.5em 5em;    
     z-index: 2;
 }
+.mobile .vgz-search-overlay {
+    width: 77%;
+}
 .vgz-search-content {
     margin: auto;
     width: 80%;
@@ -45,6 +48,9 @@ template.innerHTML = `
     font-size: 1em;
     color: #465F0E;
     padding: 0 0.5em;
+}
+.mobile .vgz-search-query {
+    width: 97%;
 }
 .vgz-search-query:focus {
     outline: none;
@@ -64,7 +70,7 @@ template.innerHTML = `
     position: absolute;
     display: none;
     width: 2.5em;
-    background-color: #FFF;
+    background-color: transparent;
     border: none;
     right: 2em;
     top: 0.1em;
@@ -141,8 +147,12 @@ class VgzSearch extends HTMLElement {
         this.attachShadow({mode: 'open'});
         this.shadowRoot.appendChild(template.content.cloneNode(true));
 
+        const isMobile = this.dataset.vgzMobile;
+        if (isMobile) {
+            this.shadowRoot.querySelector(".vgz-search-container").classList.add("mobile");
+        }
         const isIntern = this.dataset.vgzIntern;
-        if (isIntern) {
+        if (isIntern && !isMobile) {
             this.shadowRoot.querySelector(".vgz-search-container").classList.add("internal");
         }
         
@@ -151,6 +161,7 @@ class VgzSearch extends HTMLElement {
         btnSearch.addEventListener("click", () => {
             this.input.handleClick();
             this.close.show();
+            this.setAttribute("aria-expanded", "true");
         });
         
         // prepare the input field
@@ -185,6 +196,7 @@ class VgzSearch extends HTMLElement {
     hideOverlay() {
         this.close.hide();
         this.input.hide();
+        this.setAttribute("aria-expanded", "false");
     }
 }
 
