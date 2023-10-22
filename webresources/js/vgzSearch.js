@@ -141,8 +141,11 @@ class VgzSearch extends HTMLElement {
         this.input = new InputField(this);
         this.close = new CloseButton(this);
     }
-
+    
     connectedCallback() {
+        if (!this.checkActive()) {
+            return;
+        }
         // shadow 
         this.attachShadow({mode: 'open'});
         this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -170,6 +173,10 @@ class VgzSearch extends HTMLElement {
         this.close.init(this.shadowRoot.querySelector(".vgz-search-close"));
 
         this.handleParams();
+    }
+
+    checkActive() { // instance is active when visible
+        return this.offsetHeight > 0;
     }
 
     /**
@@ -308,9 +315,12 @@ class InputField {
     }
 
     doSearch(searchField) {
-        const queryStr = searchField.value.trim().split(" ");
-        queryStr.forEach((item, index, arr) => arr[index] = item + "*");
-        location.href = location.href + "?queryStr=" + queryStr.join("+");
+        const queryStr = searchField.value.trim();
+        if (queryStr) {
+            const queryParts = queryStr.split(" ");
+            queryParts.forEach((item, index, arr) => arr[index] = item + "*");
+            location.href = location.href + "?queryStr=" + queryParts.join("+");
+        }
     }
 
     handleKey(keyEvent, btnClear) {
@@ -347,6 +357,7 @@ class InputField {
      * Hides the overlay with the input field.
      */
     hide() {
+        console.log("hide");
         if (this.searchOverlay) {
             this.searchOverlay.style.display = "none";
         }

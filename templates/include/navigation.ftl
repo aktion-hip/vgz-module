@@ -12,7 +12,7 @@
             </a> 
           </div>
         </nav>
-        <div class="vgz-mobile-search">        
+        <div class="vgz-mobile-search">
           <vgz-search data-vgz-intern="${clsIntern}" data-vgz-mobile="true" aria-expanded="false" />
         </div>
       </div>

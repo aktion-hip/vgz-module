@@ -248,11 +248,13 @@ h2.vgz-toggle-container-button{
     background-color: #FFF;
     padding: 3em 4em;
     opacity: 0.95;
+    overflow-y: scroll;
     z-index: 2;
 }
 .vgz-search-results .vgz-result-item-title  {
     font-weight: bold;
     font-size: larger;
+    margin-bottom: 0.2em;
 }
 .vgz-search-results .vgz-result-item-title > a {
     text-decoration: underline;
