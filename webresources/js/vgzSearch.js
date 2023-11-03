@@ -16,20 +16,20 @@ template.innerHTML = `
 .vgz-search-overlay {
     position: fixed;
     display: none;
-    width: 87%;
+    width: 30%;
     height: 2em;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
     cursor: pointer;
-    padding: 0.2em 0.3em;
     border: 1px solid #465F0E;
-    margin: 0.5em 10em 0.5em 5em;    
+    padding: 0.2em 1em 0.2em 0.3em;
+    margin: 0.5em 6.3em 0.5em 5em;
     z-index: 2;
 }
 .mobile .vgz-search-overlay {
-    width: 77%;
+    width: 55%;
+    margin-right: 4.4em;
 }
 .vgz-search-content {
     margin: auto;
@@ -186,6 +186,7 @@ class VgzSearch extends HTMLElement {
         const urlParams = new URLSearchParams(window.location.search);
         const queryStr = urlParams.get("queryStr");
         if (queryStr) {
+            this.toggleScrolling(true);
             // remove search parameter from URL
             const url = new URL(window.location.href);
             url.searchParams.delete("queryStr");
@@ -197,10 +198,24 @@ class VgzSearch extends HTMLElement {
         }
     }
 
+    toggleScrolling(stop) {
+        const body = document.body;
+        if (stop) {
+            body.style.height = "100vh";
+            body.style.overflowY = "hidden";
+        } else {
+            body.style.position = "";
+            body.style.top = "";
+            body.style.height = "";
+            body.style.overflowY = "";
+        }
+    }
+
     /**
      * Hides the overlay.
      */
     hideOverlay() {
+        this.toggleScrolling(false);
         this.close.hide();
         this.input.hide();
         this.setAttribute("aria-expanded", "false");
@@ -252,11 +267,16 @@ class CloseButton {
  */
 class ClearButton {
 
+    constructor(parent) {
+        this.parent = parent;
+    }
+
     init(searchOverlay, searchField) {
         this.btnClear = searchOverlay.querySelector(".vgz-search-query-clear");
         this.btnClear.addEventListener("click", () => {
             searchField.value = "";
             this.hide();
+            this.parent.setFocus();
         });
     }
 
@@ -283,11 +303,11 @@ class InputField {
     constructor(parent) {
         this.parent = parent;
         this.isOpen = false;
-        this.btnClear = new ClearButton("");
+        this.btnClear = new ClearButton(this);
     }
 
     init(target) {
-        this.btnClear = new ClearButton();
+        this.btnClear = new ClearButton(this);
 
         const searchContainer = target.closest(".vgz-search-container");
         this.searchField = searchContainer.querySelector(".vgz-search-query");
@@ -305,6 +325,15 @@ class InputField {
             this.doSearch(this.searchField);
         } else {
             this.show(this.searchOverlay, this.searchField);
+        }
+    }
+
+    /**
+     * Sets the focus on the input field for the search query.
+     */
+    setFocus() {
+        if (this.searchField) {
+            this.searchField.focus();
         }
     }
     
@@ -357,13 +386,13 @@ class InputField {
      * Hides the overlay with the input field.
      */
     hide() {
-        console.log("hide");
         if (this.searchOverlay) {
             this.searchOverlay.style.display = "none";
         }
         if (this.searchField) {
             this.searchField.value = "";
         }
+        this.btnClear.hide();
         this.isOpen = false;
     }
 }

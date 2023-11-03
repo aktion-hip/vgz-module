@@ -249,7 +249,7 @@ h2.vgz-toggle-container-button{
     padding: 3em 4em;
     opacity: 0.95;
     overflow-y: scroll;
-    z-index: 2;
+    z-index: 20;
 }
 .vgz-search-results .vgz-result-item-title  {
     font-weight: bold;
@@ -277,5 +277,5 @@ h2.vgz-toggle-container-button{
     position: relative;
     top: -3.3em;
     right: 1em;
-    z-index: 2;
+    z-index: 20;
 }

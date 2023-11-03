@@ -22,7 +22,7 @@
                 [/#list]
             [#else]
                 <h2 class="vgz-result-item-title">
-                    Keine Ergebnisse gefunden zu "${queryStr}"!
+                    Keine Ergebnisse gefunden zu "${queryStr?replace('*','')}"!
                 </h2>
             [/#if]
         </div>
