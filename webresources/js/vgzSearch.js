@@ -17,12 +17,14 @@ template.innerHTML = `
     position: fixed;
     display: none;
     width: 30%;
+    min-width: 25em;
     height: 2em;
     top: 0;
     right: 0;
     bottom: 0;
     cursor: pointer;
     border: 1px solid #465F0E;
+    background-color: #FFF;
     padding: 0.2em 1em 0.2em 0.3em;
     margin: 0.5em 6.3em 0.5em 5em;
     z-index: 2;

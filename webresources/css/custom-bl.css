@@ -239,11 +239,11 @@ h2.vgz-toggle-container-button{
 .vgz-search-results {
     position: fixed;
     display: block;
-    width: 85%;
+    max-width: 85%;
     height: 70%;
     top: 3.3em;
-    left: 3em;
-    right: 0;
+    left: 5%;
+    right: 5%;
     bottom: 0;
     background-color: #FFF;
     padding: 3em 4em;
