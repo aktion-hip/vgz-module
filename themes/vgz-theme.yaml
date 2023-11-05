@@ -31,6 +31,8 @@ jsFiles:
   custom-bl:
     addFingerPrint: true
     link: /.resources/vgz-module/webresources/js/custom-bl.js
+  vgz-search:
+    link: /.resources/vgz-module/webresources/js/vgzSearch.js
   flatpickr:
     addFingerPrint: true
     link: /.resources/vgz-module/webresources/js/flatpickr.min.js
