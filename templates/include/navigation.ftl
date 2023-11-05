@@ -12,6 +12,9 @@
             </a> 
           </div>
         </nav>
+        <div class="vgz-mobile-search">
+          <vgz-search data-vgz-intern="${clsIntern}" data-vgz-mobile="true" aria-expanded="false" />
+        </div>
       </div>
     </div>
     <div id="tm-mobile" class="uk-modal-full uk-modal" uk-modal="">
@@ -88,7 +91,7 @@
 <!-- header screen -->
 <div class="tm-header uk-visible@m" uk-header="">
   <div class="uk-navbar-container">
-    <div class="uk-container">
+    <div class="uk-container vgz-nav-parent">
       <nav class="uk-navbar" uk-navbar="{align:left,boundary:!.uk-navbar-container}">
         <div class="uk-navbar-center">
           <!-- Navigation Start (horizontal menu bar at top of page) -->
@@ -124,6 +127,7 @@
           <!-- Navigation End -->
         </div>
       </nav>
+      <vgz-search data-vgz-intern="${clsIntern}" aria-expanded="false" />
     </div>
   </div>
 </div> 	 
