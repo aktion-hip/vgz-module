@@ -1,6 +1,7 @@
 const pathImg = "/.resources/vgz-module/webresources/img/icons/";
 const imgSearch = "search_vgz.svg";
 const imgCross = "search_vgz_cross.svg";
+const widthScreenSwitch = 960;
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
@@ -145,14 +146,14 @@ class VgzSearch extends HTMLElement {
     }
     
     connectedCallback() {
-        if (!this.checkActive()) {
+        const isMobile = this.dataset.vgzMobile || false;
+        if (!this.checkActive(isMobile)) {
             return;
         }
         // shadow 
         this.attachShadow({mode: 'open'});
         this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-        const isMobile = this.dataset.vgzMobile;
         if (isMobile) {
             this.shadowRoot.querySelector(".vgz-search-container").classList.add("mobile");
         }
@@ -177,8 +178,14 @@ class VgzSearch extends HTMLElement {
         this.handleParams();
     }
 
-    checkActive() { // instance is active when visible
-        return this.offsetHeight > 0;
+    /**
+     * If mobile, we activate the search only for the instance with width < 960!
+     */
+    checkActive(isMobile) {
+        if (isMobile) {
+            return screen.width < widthScreenSwitch;
+        }
+        return screen.width >= widthScreenSwitch;
     }
 
     /**
