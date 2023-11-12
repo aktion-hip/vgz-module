@@ -65,3 +65,10 @@ document.addEventListener("DOMContentLoaded", e => {
         "locale": "de"
     });    
 });
+
+/**
+ * Handler to hide overlay displaying the search results after the user clicked the background.
+ */
+function hideSearchResults() {
+    location.reload();
+}
