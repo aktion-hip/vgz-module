@@ -279,3 +279,9 @@ h2.vgz-toggle-container-button{
     right: 1em;
     z-index: 20;
 }
+
+vgz-search {
+    position: absolute;
+    right: -1.3em;
+    top: 0;
+}

@@ -3,7 +3,7 @@
     [#assign searchResults1 = searchfn.searchContent("website", queryStr, "/stadtoase", "mgnl:page") /]
     [#assign searchResults2 = searchfn.searchContent("dam", queryStr, "/vgz", "mgnl:asset") /]
     [#assign recordsFound = searchResults1?size /]
-    <div class="vgz-search-results" onclick="hideSearchOverlay()">
+    <div class="vgz-search-results" onclick="hideSearchResults()">
         <div class="vgz-search-content">
             [#if searchResults1?has_content || searchResults2?has_content]
                 [#list searchResults1 + searchResults2 as item]
