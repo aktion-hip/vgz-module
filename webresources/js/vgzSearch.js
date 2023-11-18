@@ -5,34 +5,49 @@ const widthScreenSwitch = 960;
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
-.vgz-search {
-    display: inline;
+.vgz-search-container {
     position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+.vgz-search {
     top: 1.1em;
     right: 0;
+    width: 5em;
+    margin-top: 1em;
+    margin-right: 0.7em;
 }
 .vgz-search:hover {
     cursor: pointer;
 }
 .vgz-search-overlay {
-    position: fixed;
+    position: absolute;
     display: none;
-    width: 30%;
-    min-width: 25em;
+    width: 100%;
+    background-color: #FFF;
+    margin-left: 30em;
     height: 2em;
-    top: 0;
-    right: 0;
+    top: 0.5em;
+    right: 5em;
     bottom: 0;
+}
+.vgz-search-input {
+    position: absolute;
+    min-width: 25em;
+    right: 0;
     cursor: pointer;
     border: 1px solid #465F0E;
     background-color: #FFF;
     padding: 0.2em 1em 0.2em 0.3em;
-    margin: 0.5em 6.3em 0.5em 5em;
-    z-index: 2;
+}
+.vgz-search-container.mobile {
+    right: 0;
 }
 .mobile .vgz-search-overlay {
-    width: 55%;
-    margin-right: 4.4em;
+    width: 10%;
+}
+.mobile .vgz-search-input {
+    min-width: 12em;
 }
 .vgz-search-content {
     margin: auto;
@@ -67,7 +82,7 @@ template.innerHTML = `
     border: none;
     background-color: transparent;
     cursor: pointer;
-    z-index: 3;
+    z-index: 11;
 }
 .vgz-search-close {
     position: absolute;
@@ -75,8 +90,8 @@ template.innerHTML = `
     width: 2.5em;
     background-color: transparent;
     border: none;
-    right: 2em;
-    top: 0.1em;
+    right: 3.7em;
+    min-width: 1.2em;
     cursor: pointer;
 }
 .vgz-search-close svg {
@@ -91,6 +106,10 @@ template.innerHTML = `
     color: #465F0E;
 }
 svg.vgz-search-icon {
+    position: absolute;
+    right: 1em;
+    margin-right: 0.3em;
+    min-width: 1.5em;
     fill: #465F0E;
 }
 .vgz-search-container.internal svg.vgz-search-icon {
@@ -112,12 +131,14 @@ svg.vgz-search-icon:hover {
 
 <div class="vgz-search-container">
   <div class="vgz-search-overlay">
-    <input class="vgz-search-query"/>
-    <button aria-label="Clear" class="vgz-search-query-clear">
-        <svg class="vgz-search-icon-clear" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" fill="#465F0E"/>
-        </svg>
-    </button>
+    <div class="vgz-search-input">
+        <input class="vgz-search-query" title="search query" />
+        <button aria-label="Clear" class="vgz-search-query-clear">
+            <svg class="vgz-search-icon-clear" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" fill="#465F0E"/>
+            </svg>
+        </button>
+    </div>
   </div>
   <div class="vgz-search">
     <button aria-label="Filter schliessen" class="vgz-search-close">
