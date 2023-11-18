@@ -279,9 +279,14 @@ h2.vgz-toggle-container-button{
     right: 1em;
     z-index: 20;
 }
-
+.vgz-mobile-search vgz-search {
+    right: initial;
+}
 vgz-search {
     position: absolute;
-    right: -1.3em;
+    right: 0;
     top: 0;
+    width: 100%;
+    min-width: 3em;
+    padding-left: 2em;
 }
