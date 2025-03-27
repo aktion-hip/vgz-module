@@ -38,7 +38,7 @@
 [/#function]
 
 [#function hideInNav page]
-  [#return isProxy(page)?then(false, page.hideInNav)]
+  [#return isProxy(page)?then(false, page.hideInNav!false)]
 [/#function]
 
 [#function getLinkChkd page]
