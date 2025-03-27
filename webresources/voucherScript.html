@@ -1,0 +1,54 @@
+<!-- Voucher form embedded in /stadtoase/gesundheit/sauna/kauf-gutschein -->
+<script>
+  // constants
+  const form = document.querySelector("form#vouchers");
+  const voucherInput = {
+    voucher: 1,
+    sauna_abo_11: 275,
+    sauna_abo_11_towel: 385,
+  };
+  const voucherTotal = form.querySelector("input[name='voucher_total']");
+
+  const addressCheckbox = form.querySelector("input[name='chk_deliv_address']");
+  const ancestor = addressCheckbox.closest("div.uk-grid-small.uk-child-width-auto");
+  const deliveryHead = ancestor.nextElementSibling;
+  const deliveryFields = form.querySelectorAll("input[name^='deliv_']");
+
+  // code
+  for (let key in voucherInput) {
+    const input = form.querySelector(`input[name='${key}']`);
+    input.addEventListener("blur", (e) => {
+      voucherTotal.value = "Total: " + calculateTotal();
+    });
+  }
+
+  addressCheckbox.addEventListener("change", (e) => {
+    toggleDeliveryFields(deliveryHead, deliveryFields, !e.target.checked);
+  });
+  addressCheckbox.checked = true;
+  toggleDeliveryFields(deliveryHead, deliveryFields, false);
+
+  // functions
+  function toggleDeliveryFields(elHead, fields, show) {
+    elHead.style.display = show ? "block" : "none";
+    fields.forEach((el) => {
+      el.style.display = show ? "block" : "none";
+      if (show) {
+        if (el.name !== "deliv_firma") {
+          el.setAttribute("required", "");
+        }
+      } else {
+        el.removeAttribute("required");
+      }
+    });
+  }
+
+  function calculateTotal() {
+    let total = 0;
+    for (let key in voucherInput) {
+      const input = form.querySelector(`input[name='${key}']`);
+      total += input.value * voucherInput[key];
+    }
+    return total;
+  }
+</script>
