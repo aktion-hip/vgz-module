@@ -1,6 +1,7 @@
 [#assign queryStr = ctx.getParameter('queryStr')!?html]
 [#if queryStr?has_content]
-    [#assign searchResults1 = searchfn.searchContent("website", queryStr, "/stadtoase", "mgnl:page") /]
+    [#assign pages = searchfn.searchContent("website", queryStr, "/stadtoase", "mgnl:page") /]
+    [#assign searchResults1 = pages?filter(p -> p["mgnl:template"] != "vgz-module:pages/vgz-proxy") /]
     [#assign searchResults2 = searchfn.searchContent("dam", queryStr, "/vgz", "mgnl:asset") /]
     [#assign recordsFound = searchResults1?size /]
     <div class="vgz-search-results" onclick="hideSearchResults()">
