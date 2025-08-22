@@ -7,7 +7,7 @@ function toggleEventDetails(id, div) {
     // toggle details
     Array.from(document.getElementsByClassName("vk-event_details")).forEach(el => {
         el.style.display = "none";
-    });    
+    });
     document.getElementById(id).style.display = "block";
 };
 
@@ -19,7 +19,7 @@ function vgzContainerToggle(button) {
     const showHide = button.parentNode.querySelector(".vgz-toggle-container-area");
     if (showHide.style.display === "block") {
         showHide.style.display = "none";
-        showHide.style.opacity = 0;                  
+        showHide.style.opacity = 0;
         button.classList.remove("vgz-toggle-container-button--open");
     } else {
         showHide.style.display = "block";
@@ -62,8 +62,9 @@ document.addEventListener("DOMContentLoaded", e => {
     flatpickr(".vgz-flatpickr", {
         dateFormat: "d.m.Y",
         allowInput: true,
-        "locale": "de"
-    });    
+        locale: "de",
+        disableMobile: "true"
+    });
 });
 
 /**
