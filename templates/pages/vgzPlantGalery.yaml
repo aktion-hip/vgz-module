@@ -1,12 +1,8 @@
 title: vgz-page-galery
-templateScript: /vgz-module/templates/pages/VgzPlantGalery.ftl
+templateScript: /vgz-module/templates/pages/vgzPlantGalery.ftl
 renderType: freemarker
 dialog: vgz-module:pages/vgzPlantGalery
 visible: true
-allowedTargets:
-  - vgz-module:pages/vgzPlant
-  - vgz-module:pages/vgz-page-text
-  - vgz-module:pages/vgz-page-textbild
 
 areas:
   leftTop:

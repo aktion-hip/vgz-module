@@ -28,8 +28,6 @@ form:
       textInputAllowed: true
       preview: true
       required: true
-      datasource:
-        $type: assetDatasource
     hideInNav:
       $type: hiddenField
       defaultValue: true
