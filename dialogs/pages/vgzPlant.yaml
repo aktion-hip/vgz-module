@@ -1,0 +1,52 @@
+label: vgz-page-galery-entry
+form:
+  properties:
+    title:
+      $type: textField
+      label: home.page.title
+      required: true
+      i18n: true
+    botanicalName:
+      $type: textField
+      label: vgz.page.plant.botanical
+      i18n: true
+    keywords:
+      $type: textField
+      label: home.page.keywords
+      i18n: true
+      rows: 3
+    description:
+      $type: textField
+      label: home.page.description
+      i18n: true
+      rows: 5
+    image:
+      $type: damLinkField
+      label: vgz.page.image.image
+      description: vgz.page.image.description
+      showOptions: true
+      textInputAllowed: true
+      preview: true
+      required: true
+      datasource:
+        $type: assetDatasource
+    hideInNav:
+      $type: hiddenField
+      defaultValue: true
+      type: java.lang.Boolean
+      converterClass: com.vaadin.data.converter.StringToBooleanConverter
+  layout:
+    $type: tabbedLayout
+    tabs:
+      tabMain:
+        label: Main tab
+        fields:
+          - name: title
+          - name: botanicalName
+          - name: image
+          - name: hideInNav
+      tabMeta:
+        label: Metadata
+        fields:
+          - name: keywords
+          - name: description

@@ -1,0 +1,43 @@
+title: vgz-page-galery
+templateScript: /vgz-module/templates/pages/VgzPlantGalery.ftl
+renderType: freemarker
+dialog: vgz-module:pages/vgzPlantGalery
+visible: true
+allowedTargets:
+  - vgz-module:pages/vgzPlant
+  - vgz-module:pages/vgz-page-text
+  - vgz-module:pages/vgz-page-textbild
+
+areas:
+  leftTop:
+    renderType: freemarker
+    title: vgz.page.gallery.leftTop
+    availableComponents:
+      vgzText:
+        id: vgz-module:components/vgzText
+      vgzToggleContainer:
+        id: vgz-module:components/vgzToggleContainer
+  rightTop:
+    renderType: freemarker
+    title: vgz.page.gallery.rightTop
+    availableComponents:
+      vgzText:
+        id: vgz-module:components/vgzText
+      vgzToggleContainer:
+        id: vgz-module:components/vgzToggleContainer
+  leftBottom:
+    renderType: freemarker
+    title: vgz.page.gallery.leftBottom
+    availableComponents:
+      vgzText:
+        id: vgz-module:components/vgzText
+      vgzToggleContainer:
+        id: vgz-module:components/vgzToggleContainer
+  rightBottom:
+    renderType: freemarker
+    title: vgz.page.gallery.rightBottom
+    availableComponents:
+      vgzText:
+        id: vgz-module:components/vgzText
+      vgzToggleContainer:
+        id: vgz-module:components/vgzToggleContainer

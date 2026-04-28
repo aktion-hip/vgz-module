@@ -1,0 +1,40 @@
+label: vgz-page-galery
+form:
+  properties:
+    title:
+      $type: textField
+      label: home.page.title
+      required: true
+      i18n: true
+    navigationTitle:
+      $type: textField
+      label: home.page.navigation.title
+      i18n: true
+    windowTitle:
+      $type: textField
+      label: home.page.window.title
+      i18n: true
+    keywords:
+      $type: textField
+      label: home.page.keywords
+      i18n: true
+      rows: 3
+    description:
+      $type: textField
+      label: home.page.description
+      i18n: true
+      rows: 5
+  layout:
+    $type: tabbedLayout
+    tabs:
+      tabMain:
+        label: Main tab
+        fields:
+          - name: title
+          - name: navigationTitle
+          - name: windowTitle
+      tabMeta:
+        label: Metadata
+        fields:
+          - name: keywords
+          - name: description

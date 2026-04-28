@@ -59,8 +59,10 @@
                 [#if !isInIntern(content)]
                   [#assign root = cmsfn.root(content, "mgnl:page")!content ]
                   [#assign intern = cmsfn.contentListByTemplateId(cmsfn.asJCRNode(root), "vgz-module:pages/vgz-homepage-intern") ]
-                  [#assign internHome = cmsfn.asContentMap(intern[0]) ]
-                  <li><a href="${getLinkChkd(internHome)}">${internHome.navigationTitle!"Verein"}</a></li>
+                  [#if intern?hasContent]
+                    [#assign internHome = cmsfn.asContentMap(intern[0]) ]
+                    <li><a href="${getLinkChkd(internHome)}">${internHome.navigationTitle!"Verein"}</a></li>
+                  [/#if]
                 [/#if]
               </ul>
               <!-- Mobile-Navigation End -->
@@ -120,8 +122,10 @@
             [#if !isInIntern(content)]
               [#assign root = cmsfn.root(content, "mgnl:page")!content ]
               [#assign intern = cmsfn.contentListByTemplateId(cmsfn.asJCRNode(root), "vgz-module:pages/vgz-homepage-intern") ]
-              [#assign internHome = cmsfn.asContentMap(intern[0]) ]
-              <li><a href="${getLinkChkd(internHome)}">${internHome.navigationTitle!"Verein"}</a></li>
+              [#if intern?hasContent]
+                [#assign internHome = cmsfn.asContentMap(intern[0]) ]
+                <li><a href="${getLinkChkd(internHome)}">${internHome.navigationTitle!"Verein"}</a></li>
+              [/#if]
             [/#if]
           </ul>
           <!-- Navigation End -->
