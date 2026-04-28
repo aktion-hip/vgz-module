@@ -1,0 +1,10 @@
+theme:
+  name: vgz-theme
+i18n:
+  class: info.magnolia.cms.i18n.DefaultI18nContentSupport
+  enabled: true
+  fallbackLocale: en
+  locales:
+    de:
+      enabled: true
+      language: de
