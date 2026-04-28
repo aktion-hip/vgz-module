@@ -1,0 +1,21 @@
+title: vgz-page-galery-entry
+templateScript: /vgz-module/templates/pages/VgzPlant.ftl
+renderType: freemarker
+dialog: vgz-module:pages/vgzPlant
+visible: true
+
+areas:
+  left:
+    renderType: freemarker
+    availableComponents:
+      vgzText:
+        id: vgz-module:components/vgzText
+      vgzToggleContainer:
+        id: vgz-module:components/vgzToggleContainer
+  right:
+    renderType: freemarker
+    availableComponents:
+      vgzText:
+        id: vgz-module:components/vgzText
+      vgzToggleContainer:
+        id: vgz-module:components/vgzToggleContainer
