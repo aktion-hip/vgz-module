@@ -1,5 +1,6 @@
 theme:
   name: vgz-theme
+
 i18n:
   class: info.magnolia.cms.i18n.DefaultI18nContentSupport
   enabled: true
@@ -8,3 +9,23 @@ i18n:
     de:
       enabled: true
       language: de
+
+templates:
+  availability:
+    templates:
+      home:
+        id: vgz-module:pages/vgz-homepage
+      text:
+        id: vgz-module:pages/vgz-page-text
+      text-image:
+        id: vgz-module:pages/vgz-page-textbild
+      events:
+        id: vgz-module:pages/vgz-page-events
+      imagemap:
+        id: vgz-module:pages/vgz-page-imagemap
+      proxy:
+        id: vgz-module:pages/vgz-proxy
+      gallery:
+        id: vgz-module:pages/vgzPlantGalery
+      gallery-item:
+        id: vgz-module:pages/vgzPlant

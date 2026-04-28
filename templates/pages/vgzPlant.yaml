@@ -1,5 +1,5 @@
 title: vgz-page-galery-entry
-templateScript: /vgz-module/templates/pages/VgzPlant.ftl
+templateScript: /vgz-module/templates/pages/vgzPlant.ftl
 renderType: freemarker
 dialog: vgz-module:pages/vgzPlant
 visible: true

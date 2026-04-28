@@ -3,10 +3,6 @@ templateScript: /vgz-module/templates/pages/vgz-page-textbild.ftl
 renderType: freemarker
 dialog: vgz-module:pages/vgz-page-textbild
 visible: true
-allowedTargets:
-  - vgz-module:pages/vgzPlantGalery
-  - vgz-module:pages/vgz-page-text
-  - vgz-module:pages/vgz-page-textbild
 
 areas:
   content:
