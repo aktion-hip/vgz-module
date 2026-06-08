@@ -16,6 +16,7 @@
     .vgz-title-placeholder {
         height: 51px;
     }
+
 }
 
 h4 {
@@ -72,12 +73,20 @@ em {
     width: 13em;
 }
 
+.vgz-page-galery {
+    position: relative;
+}
+
 @media screen and (min-width:960px) {
     .left-container .vgz-content {
         margin-left: calc(20%);
     }
 
     .vgz-child_nav-mobile {
+        display: none;
+    }
+
+    .vgz-backlink {
         display: none;
     }
 }
@@ -130,6 +139,17 @@ em {
 
     .vgz-content .vgzBox {
         padding-bottom: 1em;
+    }
+
+    .vgz-backlink {
+        position: absolute;
+        top: 85px;
+        left: 30px;
+        font-size: smaller;
+        font-style: italic;
+        z-index: 10;
+
+        display: block;
     }
 }
 
