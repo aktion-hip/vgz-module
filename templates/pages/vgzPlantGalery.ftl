@@ -24,16 +24,16 @@
       [@vgzLogo false /]
       [@childNavText content true /]
 
-      [#assign leftTop = cmsfn.contentByPath(content.@path + "/leftTop")!]
-      [#assign rightTop = cmsfn.contentByPath(content.@path + "/rightTop")!]
-      [#assign leftBottom = cmsfn.contentByPath(content.@path + "/leftBottom")!]
-      [#assign rightBottom = cmsfn.contentByPath(content.@path + "/rightBottom")!]
+      [#assign leftTop = cmsfn.contentByPath(content.@path + "/leftTop")!{}]
+      [#assign rightTop = cmsfn.contentByPath(content.@path + "/rightTop")!{}]
+      [#assign leftBottom = cmsfn.contentByPath(content.@path + "/leftBottom")!{}]
+      [#assign rightBottom = cmsfn.contentByPath(content.@path + "/rightBottom")!{}]
 
       <!-- Content - 2 Cols  top -->
       <div id="contentTop" class="uk-section-muted uk-section uk-padding-remove-vertical">
         <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
 
-          [#if cmsfn.isEditMode() || (leftTop?? && cmsfn.children(leftTop, "mgnl:component")?size > 0) || (rightTop?? && cmsfn.children(rightTop, "mgnl:component")?size > 0)]
+          [#if cmsfn.isEditMode() || (leftTop?has_content && cmsfn.children(leftTop, "mgnl:component")?size > 0) || (rightTop?has_content && cmsfn.children(rightTop, "mgnl:component")?size > 0)]
             <div class="uk-width-1-2@m uk-flex-first@m">
               <!-- Content - Col Left top -->
               <div class="uk-section-muted left-container">
@@ -97,7 +97,7 @@
       <div id="contentBottom" class="uk-section-muted uk-section uk-padding-remove-vertical">
         <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
 
-          [#if cmsfn.isEditMode() || (leftBottom?? && cmsfn.children(leftBottom, "mgnl:component")?size > 0) || (rightBottom?? && cmsfn.children(rightBottom, "mgnl:component")?size > 0)]
+          [#if cmsfn.isEditMode() || (leftBottom?has_content && cmsfn.children(leftBottom, "mgnl:component")?size > 0) || (rightBottom?has_content && cmsfn.children(rightBottom, "mgnl:component")?size > 0)]
             <div class="uk-width-1-2@m uk-flex-first@m">
               <!-- Content - Col Left bottom -->
               <div class="uk-section-muted left-container">

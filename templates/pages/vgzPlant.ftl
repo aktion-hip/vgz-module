@@ -24,6 +24,17 @@
       [@vgzLogo false /]
       [@childNavText content true /]
 
+      <!-- Backlink -->
+      [#assign parent = cmsfn.parent(content, "mgnl:page")! ]
+      <div class="vgz-backlink">
+        <a href="${cmsfn.link(parent)}">
+          [#if parent.title??]
+            zur ${parent.title}
+          [#else]
+            zurück
+          [/#if]
+        </a>
+      </div>
       <!-- Content - 2 Cols -->
       <div id="content" class="uk-section-muted uk-section uk-padding-remove-vertical">
         <div class="tm-grid-expand uk-grid-margin uk-grid" uk-grid="">
