@@ -22,7 +22,7 @@ templates:
       events:
         id: vgz-module:pages/vgz-page-events
       imagemap:
-        id: vgz-module:pages/vgz-page-imagemap
+        id: vgz-module:pages/vgz-page-imgmap
       proxy:
         id: vgz-module:pages/vgz-proxy
       gallery:
