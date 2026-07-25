@@ -19,7 +19,7 @@
 
 [#function getEvents]
   [#assign events = cmsfn.contentByPath("/", "vgz_events")]
-  [#assign all = cmsfn.children(events, "vgz:event")?sort_by("start_date")]
+  [#assign all = cmsfn.children(events, "vgz:event")?filter(x -> x.start_date??)?sort_by("start_date")]
   [#assign yesterday = .now?long - 86400000]
   [#return all?filter(e -> (e.end_date??)?then(e.end_date?long >= yesterday, e.start_date?long >= yesterday))]
 [/#function]
